@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <vector>
 #include <time.h>
 #include <stdlib.h>
@@ -97,4 +97,9 @@ int main() {
         cout << "An enemy has appeared: " << RandomEnemy() << endl;
         Goblin();
     }
+}*/
+
+#include "Textbasedgame.cpp"
+int main(){
+    Character name();
 }
