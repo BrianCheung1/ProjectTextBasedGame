@@ -11,56 +11,56 @@ string Enemy::genRandomMob(){
     return randomMob;
 }
 
-void Enemy::stats(){
+void Enemy::Enemystats(){
     if(genRandomMob() == "Rat"){
-        hp_ = 10;
-        atk_ = 5;
-        def_ = 5;
+        Enemyhp_ = 10;
+        Enemyatk_ = 5;
+        Enemydef_ = 5;
     }
     if(genRandomMob() == "Bat"){
-        hp_ = 10;
-        atk_ = 10;
-        def_ = 0;
+        Enemyhp_ = 10;
+        Enemyatk_ = 10;
+        Enemydef_ = 0;
     }
     if(genRandomMob() == "Goblin"){
-        hp_ = 10;
-        atk_ = 7.5;
-        def_ = 7.5;
+        Enemyhp_ = 10;
+        Enemyatk_ = 7.5;
+        Enemydef_ = 7.5;
     }
 }
 
-float Enemy::getHP(){
+float Enemy::EnemygetHP(){
     float hp;
     if(genRandomMob() == "Rat" || "Bat" || "Goblin"){
-       hp = hp_;
+       hp = Enemyhp_;
     }
     return hp;
 }
 
-float Enemy::getAtk(){
+float Enemy::EnemygetAtk(){
     float atk;
     if(genRandomMob() == "Rat"){
-        atk = atk_;
+        atk = Enemyatk_;
     }
     if(genRandomMob() == "Bat"){
-        atk = atk_;
+        atk = Enemyatk_;
     }
     if(genRandomMob() == "Goblin"){
-        atk = atk_;
+        atk = Enemyatk_;
     }
     return atk;
 }
 
-float Enemy::getDef(){
+float Enemy::EnemygetDef(){
     float def;
     if(genRandomMob() == "Rat"){
-        def = def_;
+        def = Enemydef_;
     }
     if(genRandomMob() == "Bat"){
-        def = def_;
+        def = Enemydef_;
     }
     if(genRandomMob() == "Goblin"){
-        def = def_;
+        def = Enemydef_;
     }
     return def;
 }

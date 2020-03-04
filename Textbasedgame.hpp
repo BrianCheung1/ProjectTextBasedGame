@@ -13,19 +13,20 @@ class Character{
     string getclassname();
     void setName(string name);
     void setClass(int choice);
-    int getLevel();
-    float getHP();
-    float getAtk();
-    float getDef();
-    
+    float playergetHP();
+    int playergetLevel();
+    void setHP(float health);
+    float playergetAtk();
+    float playergetDef();
+
     private:
-    string name_;
-    string classname_;
-    int level_;
-    int experience_;
-    float hp_;
-    float atk_;
-    float def_;
+    string playername_;
+    string playerclassname_;
+    int playerlevel_;
+    int playerexperience_;
+    float playerhp_;
+    float playeratk_;
+    float playerdef_;
 
 };
 
@@ -33,23 +34,22 @@ class Enemy{
     public:
     Enemy();
     string genRandomMob();
-    void stats();
-    float getHP();
-    float getAtk();
-    float getDef();
+    void Enemystats();
+    float EnemygetHP();
+    float EnemygetAtk();
+    float EnemygetDef();
 
     private:
-    string name_;
-    float hp_;
-    float atk_;
-    float def_;
+    string Enemyname_;
+    float Enemyhp_;
+    float Enemyatk_;
+    float Enemydef_;
 };
 
-class Combat{
+class Combat : public Character, Enemy{
     public:
     Combat();
-    int startCombat();
-    int endCombat();
+    void startCombat();
     private:
     
 };
