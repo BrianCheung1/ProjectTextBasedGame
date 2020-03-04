@@ -15,7 +15,7 @@ class Character{
     void setClass(int choice);
     float playergetHP();
     int playergetLevel();
-    void setHP(float health);
+    void setPlayerHP(float health);
     float playergetAtk();
     float playergetDef();
 
@@ -38,6 +38,7 @@ class Enemy{
     float EnemygetHP();
     float EnemygetAtk();
     float EnemygetDef();
+    void setEnemyHP(float health);
 
     private:
     string Enemyname_;
@@ -46,10 +47,11 @@ class Enemy{
     float Enemydef_;
 };
 
-class Combat : public Character, Enemy{
+class Combat : public Character, Enemy {
     public:
     Combat();
-    void startCombat();
+    float startPlayerCombat(Character a, Enemy b);
+    float startEnemyCombat(Enemy a, Character b);
     private:
     
 };

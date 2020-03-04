@@ -17,7 +17,6 @@ int main(){
     cin >> choice;
 
     player.setClass(choice);
-    
     cout << "==================" << endl;
     cout << "Player Name: " << player.getname() << endl;
     cout << "Player Class: " << player.getclassname() << endl;
@@ -33,13 +32,22 @@ int main(){
     cout << "HP:  " << mob.EnemygetHP() << endl;
     cout << "ATK: " << mob.EnemygetAtk() << endl;
     cout << "DEF: " << mob.EnemygetDef() << endl;
-
-    cout << "Battling..." << endl;
     
     Combat startBattle;
-    startBattle.startCombat();
-    //player.setHP(player.playergetHP() - mob.EnemygetAtk());
-    cout << player.playergetHP() << endl;
-    cout << mob.EnemygetHP() << endl;
+    cout << "Battling..." << endl;
+    cout << "==================" << endl;
+    cout << "Your HP: " << startBattle.startPlayerCombat(player, mob) << endl;
+    cout << "Enemy HP: " << startBattle.startEnemyCombat(mob, player) << endl;
+    cout << "==================" << endl;
 
-}
+    cout << mob.genRandomMob() << endl;
+    mob.Enemystats();
+    cout << "HP:  " << mob.EnemygetHP() << endl;
+    cout << "ATK: " << mob.EnemygetAtk() << endl;
+    cout << "DEF: " << mob.EnemygetDef() << endl;
+    cout << "Battling..." << endl;
+    cout << "==================" << endl;
+    cout << "Your HP: " << startBattle.startPlayerCombat(player, mob) << endl;
+
+    
+}   

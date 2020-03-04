@@ -20,7 +20,7 @@ std::string Character::getclassname(){
 void Character::setName(string name){
     playername_ = name;
 }
-void Character::setHP(float health){
+void Character::setPlayerHP(float health){
     playerhp_ = health;
 }
 void Character::setClass(int choice){

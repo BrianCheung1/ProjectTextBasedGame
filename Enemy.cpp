@@ -64,3 +64,7 @@ float Enemy::EnemygetDef(){
     }
     return def;
 }
+
+void Enemy::setEnemyHP(float health){
+    Enemyhp_ = health;
+}
