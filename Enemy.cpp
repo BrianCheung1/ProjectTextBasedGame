@@ -19,13 +19,13 @@ void Enemy::Enemystats(){
     }
     if(genRandomMob() == "Bat"){
         Enemyhp_ = 10;
-        Enemyatk_ = 10;
-        Enemydef_ = 0;
+        Enemyatk_ = 7.5;
+        Enemydef_ = 7.5;
     }
     if(genRandomMob() == "Goblin"){
         Enemyhp_ = 10;
-        Enemyatk_ = 7.5;
-        Enemydef_ = 7.5;
+        Enemyatk_ = 10;
+        Enemydef_ = 10;
     }
 }
 

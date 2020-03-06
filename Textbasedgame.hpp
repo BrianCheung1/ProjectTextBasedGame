@@ -50,8 +50,8 @@ class Enemy{
 class Combat : public Character, Enemy {
     public:
     Combat();
-    float startPlayerCombat(Character a, Enemy b);
-    float startEnemyCombat(Enemy a, Character b);
+    void startPlayerCombat(Character &a, Enemy &b);
+    void startEnemyCombat(Enemy &a, Character &b);
     private:
     
 };
