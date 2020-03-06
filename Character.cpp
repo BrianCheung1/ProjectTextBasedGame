@@ -107,6 +107,14 @@ float Character::playergetDef(){
 Adds experience to the player 
 existing experience
 */
-int Character::addExperience(int Exp){
-    return Exp;
+void Character::playeraddExperience(int Exp){
+    playerexperience_ += Exp;
+}
+/*
+return all stats values of player
+*/
+void Character::playerStats(){
+    cout << "Player Lvl: " << playerlevel_ << endl;
+    cout << "Player Exp: " << playerexperience_ << endl;
+
 }

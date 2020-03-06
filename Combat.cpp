@@ -21,9 +21,10 @@ void Combat::startEnemyCombat(Enemy &a, Character &b){
     //remove hp depedning on mob attack
     //return hp value of player and mob
     a.setEnemyHP(a.EnemygetHP() - b.playergetAtk());
-
+    srand(time(NULL));
     if (a.EnemygetHP() <= 0) {
         a.setEnemyHP(0);
+        b.playeraddExperience(rand() % 10);
     }
 
 }
@@ -48,9 +49,10 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
     cout << "HP:  " << b.EnemygetHP() << endl;
     cout << "ATK: " << b.EnemygetAtk() << endl;
     cout << "DEF: " << b.EnemygetDef() << endl;
-    cout << "Would you like to battle again? " << endl;
+    cout << "Would you like to battle? " << endl;
     cin >> BattleAgain;
     BattleEnded = "no";
+  
 
     /*
     begins a battle with the mob that was generated

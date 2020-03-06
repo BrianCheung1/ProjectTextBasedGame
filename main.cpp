@@ -38,13 +38,20 @@ int main(){
     startBattle.ActualCombat(startBattle,player,mob);
 
     Places Going;
-    if(Going.nextPlace() == 2){
-        startBattle.ActualCombat(startBattle,player,mob);
-    }
-    if(Going.nextPlace() == 3){
-        exit;
-    }
+    string Gameplay;
+    string placeChoice = Going.nextPlace();
     
-
-    
+    while(Gameplay != "no"){
+        if(placeChoice == "2"){
+            startBattle.ActualCombat(startBattle,player,mob);
+            placeChoice = Going.nextPlace();
+        }
+        else if(placeChoice  == "3"){
+            player.playerStats();
+            placeChoice = Going.nextPlace();
+        }
+        else if(placeChoice  == "4"){
+            Gameplay = "no";
+        }
+    }
 }   
