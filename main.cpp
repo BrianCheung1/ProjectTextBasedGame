@@ -33,46 +33,18 @@ int main(){
     cout << "DEF: " << player.playergetDef() << endl;
     cout << "==================" << endl;
 
-    /*
-    Creates a random mob
-    Shows the stats for user to see
-    */
     Enemy mob;
-    cout << mob.genRandomMob() << endl;
-    mob.Enemystats();
-    cout << "HP:  " << mob.EnemygetHP() << endl;
-    cout << "ATK: " << mob.EnemygetAtk() << endl;
-    cout << "DEF: " << mob.EnemygetDef() << endl;
+    Combat startBattle;
+    startBattle.ActualCombat(startBattle,player,mob);
 
-    /*
-    begins a battle with the mob that was generated
-    Provides hp remaining for player and mob
-    Allows user to choose if they want to battle again or not
-    */
-    string BattleAgain;
-    while(BattleAgain != "no"){
-        Combat startBattle;
-        cout << "==================" << endl;
-        cout << "Battling..." << endl;
-        startBattle.startPlayerCombat(player, mob);
-        cout << "Your HP: "<< player.playergetHP() << endl;
-        startBattle.startEnemyCombat(mob, player);
-        cout << "Enemy HP: "<< mob.EnemygetHP() << endl;
-        cout << "==================" << endl;
-        
-        cout << mob.genRandomMob() << endl;
-        mob.Enemystats();
-        cout << "HP:  " << mob.EnemygetHP() << endl;
-        cout << "ATK: " << mob.EnemygetAtk() << endl;
-        cout << "DEF: " << mob.EnemygetDef() << endl;
-        
-        if(player.playergetHP() > 0){
-            cout << "Would you like to battle again? " << endl;
-            cin >> BattleAgain;
-        }
-        else if(player.playergetHP() <= 0){
-            BattleAgain = "no";
-        }
+    Places Going;
+    if(Going.nextPlace() == 2){
+        startBattle.ActualCombat(startBattle,player,mob);
     }
+    if(Going.nextPlace() == 3){
+        exit;
+    }
+    
+
     
 }   

@@ -18,6 +18,7 @@ class Character{
     void setPlayerHP(float health);
     float playergetAtk();
     float playergetDef();
+    int addExperience(int Exp);
 
     private:
     string playername_;
@@ -52,6 +53,22 @@ class Combat : public Character, Enemy {
     Combat();
     void startPlayerCombat(Character &a, Enemy &b);
     void startEnemyCombat(Enemy &a, Character &b);
+    string endBattle(Character &a, Enemy &b);
+    void ActualCombat(Combat &c, Character &a, Enemy &b);
     private:
     
+};
+
+class Leveling : public Character {
+    public:
+    Leveling();
+    void gainExperience();
+};
+
+class Places : public Character{
+    public:
+    Places();
+    int nextPlace();
+    string town();
+    string adventure();
 };
