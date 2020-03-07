@@ -13,9 +13,7 @@ int main(){
     Each come with different stats
     */
     cout << "What class would you like to play?" << endl;
-    cout << "[1]Warrior" << endl;
-    cout << "[2]Mage" << endl;
-    cout << "[3]Archer" << endl;
+    cout << "[1]Warrior [2]Mage [3]Archer" << endl;
     int choice;
     cin >> choice;
 
@@ -31,6 +29,7 @@ int main(){
     cout << "HP:  " << player.playergetHP() << endl;
     cout << "ATK: " << player.playergetAtk() << endl;
     cout << "DEF: " << player.playergetDef() << endl;
+    cout << "EXP: " << player.playergetExp() << endl;
     cout << "==================" << endl;
 
     Enemy mob;
@@ -42,6 +41,11 @@ int main(){
     string placeChoice = Going.nextPlace();
     
     while(Gameplay != "no"){
+        if(placeChoice == "1"){
+            Town townAction;
+            townAction.whereInTown();
+            placeChoice = Going.nextPlace();
+        }
         if(placeChoice == "2"){
             startBattle.ActualCombat(startBattle,player,mob);
             placeChoice = Going.nextPlace();

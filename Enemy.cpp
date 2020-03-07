@@ -20,17 +20,17 @@ Provideds the enemys with different stats
 */
 void Enemy::Enemystats(){
     if(genRandomMob() == "Rat"){
-        Enemyhp_ = 100;
+        Enemyhp_ = 10;
         Enemyatk_ = 5;
         Enemydef_ = 5;
     }
     if(genRandomMob() == "Bat"){
-        Enemyhp_ = 100;
+        Enemyhp_ = 10;
         Enemyatk_ = 7.5;
         Enemydef_ = 7.5;
     }
     if(genRandomMob() == "Goblin"){
-        Enemyhp_ = 100;
+        Enemyhp_ = 10;
         Enemyatk_ = 10;
         Enemydef_ = 10;
     }

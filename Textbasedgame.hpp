@@ -18,6 +18,7 @@ class Character{
     void setPlayerHP(float health);
     float playergetAtk();
     float playergetDef();
+    float playergetExp();
     void playeraddExperience(int Exp);
     void playerStats();
 
@@ -71,5 +72,14 @@ class Places : public Character{
     Places();
     string nextPlace();
     string town();
-    string adventure();
+};
+
+
+class Town : public Places{
+    public:
+    Town();
+    string whereInTown();
+    string townShop();
+    string townCrafting();
+    string townUpgrade();
 };

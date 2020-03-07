@@ -2,6 +2,10 @@
 
 Combat::Combat(){}
 
+/*
+if user chose to battle
+this calls for the change in character hp
+*/
 void Combat::startPlayerCombat(Character &a, Enemy &b){
 
     //Take total mob hp
@@ -13,6 +17,11 @@ void Combat::startPlayerCombat(Character &a, Enemy &b){
 
 }
 
+/*
+If user chose to battle
+This calls for the the change Enemy hp
+if enemy dies, provides exp to user
+*/
 void Combat::startEnemyCombat(Enemy &a, Character &b){
 
     //Take total mob hp
@@ -24,11 +33,15 @@ void Combat::startEnemyCombat(Enemy &a, Character &b){
     srand(time(NULL));
     if (a.EnemygetHP() <= 0) {
         a.setEnemyHP(0);
-        b.playeraddExperience(rand() % 10);
+        b.playeraddExperience(rand() % 10 + 5);
     }
 
 }
 
+/*
+Condition for battle ending if player hp
+or enemy hp is equal or below zero
+*/
 string Combat::endBattle(Character &a, Enemy &b){
     string BattleEnded;
     if(a.playergetHP() <= 0 || b.EnemygetHP() <= 0){
@@ -37,6 +50,13 @@ string Combat::endBattle(Character &a, Enemy &b){
     return BattleEnded;
 }
 
+/*
+The actual fighting process of Character and enemy
+Creates a mob for user to see
+Asks if they want to fight
+Displays stats of mob
+Dispaly Hp of player and mob
+*/
 void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
     string BattleAgain;
     string BattleEnded;

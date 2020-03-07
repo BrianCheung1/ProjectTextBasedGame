@@ -78,7 +78,6 @@ Returns the player level depending on
 their amount of experience
 */
 int Character::playergetLevel(){
-    playerlevel_ = playerexperience_ * 0.1;
     return playerlevel_;
 }
 
@@ -103,18 +102,28 @@ float Character::playergetDef(){
     return playerdef_;
 }
 
+float Character::playergetExp(){
+    return playerexperience_;
+};
+
+
 /*
 Adds experience to the player 
 existing experience
 */
 void Character::playeraddExperience(int Exp){
     playerexperience_ += Exp;
+    playerlevel_ = playerexperience_ * 0.1;
 }
+
 /*
 return all stats values of player
 */
 void Character::playerStats(){
-    cout << "Player Lvl: " << playerlevel_ << endl;
-    cout << "Player Exp: " << playerexperience_ << endl;
-
+    cout << "Player Class: " << getclassname() << endl;
+    cout << "Lvl: " << playergetLevel() << endl;
+    cout << "HP:  " << playergetHP() << endl;
+    cout << "ATK: " << playergetAtk() << endl;
+    cout << "DEF: " << playergetDef() << endl;
+    cout << "EXP: " << playergetExp() << endl;
 }
