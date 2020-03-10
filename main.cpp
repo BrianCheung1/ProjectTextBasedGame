@@ -12,10 +12,12 @@ int main(){
     Provide 3 different classes for user to choose fomr
     Each come with different stats
     */
+    string choice;
     cout << "What class would you like to play?" << endl;
+    while(choice != "1" && choice != "2" && choice != "3"){
     cout << "[1]Warrior [2]Mage [3]Archer" << endl;
-    int choice;
     cin >> choice;
+    }
 
     /*
     Changes user to their chosen class
@@ -34,21 +36,35 @@ int main(){
 
     Enemy mob;
     Combat startBattle;
-    startBattle.ActualCombat(startBattle,player,mob);
-
     Places Going;
     string Gameplay;
     string placeChoice = Going.nextPlace();
+
+    Death zeroHP;
     
+    /*
+    Main gameplay
+    Gives the user different options of what they want to do
+    Town
+    Combat
+    Stats
+    Exit Game
+    */
     while(Gameplay != "no"){
         if(placeChoice == "1"){
             Town townAction;
             townAction.whereInTown();
             placeChoice = Going.nextPlace();
         }
-        if(placeChoice == "2"){
+        else if(placeChoice == "2"){
             startBattle.ActualCombat(startBattle,player,mob);
-            placeChoice = Going.nextPlace();
+            if(player.playergetHP() <= 0){
+                zeroHP.respawn(player);
+                placeChoice = Going.nextPlace();
+            }
+            else{
+                placeChoice = Going.nextPlace();
+            }
         }
         else if(placeChoice  == "3"){
             player.playerStats();

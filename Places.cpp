@@ -16,11 +16,15 @@ string Places::nextPlace() {
     return placeNumber;
 }
 
+/*
+Provide options of town that user can choose from
+Each one will provide user with helpful benefits
+*/
 string Places::town(){
     string townNumber;
     while(townNumber != "1" && townNumber != "2" && townNumber != "3" && townNumber != "4" && townNumber != "5"){
         cout << "What would you like to do?" << endl;
-        cout << "[1]Shop [2]Craft [3]Upgrade [4]Adventure [5]Check stats" << endl;
+        cout << "[1]Shop [2]Craft [3]Upgrade [4]Adventure" << endl;
         cin >> townNumber;
     }
     return townNumber;

@@ -45,8 +45,8 @@ Changes the class of the user depending on their choice
 Each class provide different stats
 And different class names
 */
-void Character::setClass(int choice){
-    if(choice == 1){
+void Character::setClass(string choice){
+    if(choice == "1"){
         playerclassname_ = "Warrior";
         playerlevel_ = 1;
         playerexperience_ = 10;
@@ -55,7 +55,7 @@ void Character::setClass(int choice){
         playerdef_ = 100;
 
     }
-    if(choice == 2){
+    if(choice == "2"){
         playerclassname_ = "Mage";
         playerlevel_ = 1;
         playerexperience_ = 10;
@@ -63,7 +63,7 @@ void Character::setClass(int choice){
         playeratk_ = 100;
         playerdef_ = 50;
     }
-    if(choice == 3){
+    if(choice == "3"){
         playerclassname_ = "Archer";
         playerlevel_ = 1;
         playerexperience_ = 10;

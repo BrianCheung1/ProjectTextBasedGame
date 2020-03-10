@@ -12,7 +12,7 @@ class Character{
     string getname();
     string getclassname();
     void setName(string name);
-    void setClass(int choice);
+    void setClass(string choice);
     float playergetHP();
     int playergetLevel();
     void setPlayerHP(float health);
@@ -72,6 +72,7 @@ class Places : public Character{
     Places();
     string nextPlace();
     string town();
+    private:
 };
 
 
@@ -82,4 +83,11 @@ class Town : public Places{
     string townShop();
     string townCrafting();
     string townUpgrade();
+    private:
+};
+
+class Death : public Places{
+    public:
+    Death();
+    void respawn(Character &a);
 };

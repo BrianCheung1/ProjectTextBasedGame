@@ -69,40 +69,62 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
     cout << "HP:  " << b.EnemygetHP() << endl;
     cout << "ATK: " << b.EnemygetAtk() << endl;
     cout << "DEF: " << b.EnemygetDef() << endl;
-    cout << "Would you like to battle? " << endl;
-    cin >> BattleAgain;
-    BattleEnded = "no";
-  
-
     /*
-    begins a battle with the mob that was generated
-    Provides hp remaining for player and mob
-    Allows user to choose if they want to battle again or not
+    Placed into a while loop to make sure that
+    user input is in range of accepted choices
     */
-    while(BattleAgain != "no"){
-        while(BattleEnded != "yes"){
-        cout << "==================" << endl;
-        cout << "Battling..." << endl;
-        c.startPlayerCombat(a, b);
-        cout << "Your HP: "<< a.playergetHP() << endl;
-        c.startEnemyCombat(b, a);
-        cout << "Enemy HP: "<< b.EnemygetHP() << endl;
-        cout << "==================" << endl;
-        BattleEnded = c.endBattle(a,b);
-        }
-        
-        if(a.playergetHP() > 0){
-            cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
-            b.Enemystats();
-            cout << "HP:  " << b.EnemygetHP() << endl;
-            cout << "ATK: " << b.EnemygetAtk() << endl;
-            cout << "DEF: " << b.EnemygetDef() << endl;
-            cout << "Would you like to battle again? " << endl;
-            cin >> BattleAgain;
-            BattleEnded = "no";
-        }
-        else if(a.playergetHP() <= 0){
-            BattleAgain = "no";
+    while(BattleAgain != "1" && BattleAgain != "2"){
+        cout << "Would you like to battle? " << endl;
+        cout << "[1]Yes [2] No"  << endl;
+        cin >> BattleAgain;
+        BattleEnded = "2";
+        /*
+        BattleEnded is set to 2 because if choice 1 is chosen
+        then the HP is calcuated
+        and choice 2 is chosen no more battles
+        */
+        while(BattleAgain == "1"){
+            /*
+            If user chose to battle, Hp would be displayed here
+            of both the character
+            and the enemy
+            */
+            while(BattleEnded == "2"){
+                cout << "==================" << endl;
+                cout << "Battling..." << endl;
+                c.startPlayerCombat(a, b);
+                cout << "Your HP: "<< a.playergetHP() << endl;
+                c.startEnemyCombat(b, a);
+                cout << "Enemy HP: "<< b.EnemygetHP() << endl;
+                cout << "==================" << endl;
+                BattleEnded = c.endBattle(a,b);
+            }
+            if(a.playergetHP() > 0){
+                cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
+                b.Enemystats();
+                cout << "HP:  " << b.EnemygetHP() << endl;
+                cout << "ATK: " << b.EnemygetAtk() << endl;
+                cout << "Would you like to battle? " << endl;
+                cout << "[1]Yes [2] No"  << endl;
+                cin >> BattleAgain;
+                /*
+                while loop to ask question again
+                if user input is out of range
+                Needed to place after the quesiton to ensure that battleagain can be called
+                or else there will be infinite loop
+                */
+                while(BattleAgain != "1" && BattleAgain != "2"){
+                    cout << "Would you like to battle? " << endl;
+                    cout << "[1]Yes [2] No"  << endl;
+                    cin >> BattleAgain;
+                }
+                BattleEnded = "2";
+            }
+            else if(a.playergetHP() <= 0){
+                BattleAgain = "2";
+            }
         }
     }
 }
+    
+

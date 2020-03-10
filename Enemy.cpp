@@ -9,7 +9,7 @@ Generates a random mob
 everything the function is called
 */
 string Enemy::genRandomMob(){
-    vector<string> Mobs{"Bat", "Rat" , "Goblin"};
+    vector<string> Mobs{"Slime", "Rat" , "Goblin"};
     srand(time(NULL));
     string randomMob = Mobs[rand() % Mobs.size()];
     return randomMob;
@@ -24,7 +24,7 @@ void Enemy::Enemystats(){
         Enemyatk_ = 5;
         Enemydef_ = 5;
     }
-    if(genRandomMob() == "Bat"){
+    if(genRandomMob() == "Slime"){
         Enemyhp_ = 10;
         Enemyatk_ = 7.5;
         Enemydef_ = 7.5;
@@ -41,7 +41,7 @@ Provides value of enemys HP
 */
 float Enemy::EnemygetHP(){
     float hp;
-    if(genRandomMob() == "Rat" || "Bat" || "Goblin"){
+    if(genRandomMob() == "Rat" || "Slime" || "Goblin"){
        hp = Enemyhp_;
     }
     return hp;
@@ -55,7 +55,7 @@ float Enemy::EnemygetAtk(){
     if(genRandomMob() == "Rat"){
         atk = Enemyatk_;
     }
-    if(genRandomMob() == "Bat"){
+    if(genRandomMob() == "Slime"){
         atk = Enemyatk_;
     }
     if(genRandomMob() == "Goblin"){
@@ -72,7 +72,7 @@ float Enemy::EnemygetDef(){
     if(genRandomMob() == "Rat"){
         def = Enemydef_;
     }
-    if(genRandomMob() == "Bat"){
+    if(genRandomMob() == "Slime"){
         def = Enemydef_;
     }
     if(genRandomMob() == "Goblin"){
