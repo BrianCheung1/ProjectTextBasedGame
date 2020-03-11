@@ -14,6 +14,7 @@ void Combat::startPlayerCombat(Character &a, Enemy &b){
     //remove hp depedning on mob attack
     //return hp value of player and mob
     a.setPlayerHP(a.playergetHP() - b.EnemygetAtk());
+    cout << "Your HP:" << a.playergetHP() << endl;
 
 }
 
@@ -30,11 +31,19 @@ void Combat::startEnemyCombat(Enemy &a, Character &b){
     //remove hp depedning on mob attack
     //return hp value of player and mob
     a.setEnemyHP(a.EnemygetHP() - b.playergetAtk());
+    cout << "Enemy HP: " << a.EnemygetHP() << endl;
     srand(time(NULL));
+    int exp = rand() % 10 + 1;
+    int gold = rand() % 10 + 1;
     if (a.EnemygetHP() <= 0) {
         a.setEnemyHP(0);
-        b.playeraddExperience(rand() % 10 + 1);
-        b.setPlayerGold(rand() % 10 + 1);
+        b.playeraddExperience(exp);
+        cout << "You've gained " << exp << " Exp" << endl;
+        b.setPlayerGold(gold);
+        cout << "You've gained " << gold << " Gold" << endl;
+    }
+    else{
+        cout << "Enemy taunts you!" << endl;
     }
 }
 
@@ -56,7 +65,7 @@ string Combat::endBattle(Character &a, Enemy &b){
         1- Fight 
         2- Run away
         */
-        cout << "Would you like to battle again? Test" << endl;
+        cout << "Would you like to battle again?" << endl;
         cout << "[1]Yes [2] No"  << endl;
         cin >> BattleEnded;
         if(BattleEnded == "1"){
@@ -109,11 +118,11 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
             and the enemy
             */
             while(BattleEnded == "2"){
+                cout << "====================" << endl;
                 cout << "Battling..." << endl;
                 c.startPlayerCombat(a, b);
-                cout << "Your HP: "<< a.playergetHP() << endl;
                 c.startEnemyCombat(b, a);
-                cout << "Enemy HP: "<< b.EnemygetHP() << endl;
+                cout << "====================" << endl;
                 //end battle returns back 1/2 depending on user/enemy hp or if user wants to run away
                 BattleEnded = c.endBattle(a,b);
             }
@@ -128,6 +137,7 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
                 b.Enemystats();
                 cout << "HP:  " << b.EnemygetHP() << endl;
                 cout << "ATK: " << b.EnemygetAtk() << endl;
+                cout << "DEF: " << b.EnemygetDef() << endl;
                 cout << "Would you like to battle? " << endl;
                 cout << "[1]Yes [2] No"  << endl;
                 cin >> BattleAgain;

@@ -24,17 +24,7 @@ int main(){
     Provides user with useful stats
     */
     player.setClass(choice);
-    cout << "==================" << endl;
-    cout << "Player Name: " << player.getname() << endl;
-    cout << "Player Class: " << player.getclassname() << endl;
-    cout << "Lvl: " << player.playergetLevel() << endl;
-    cout << "HP:  " << player.playergetHP() << endl;
-    cout << "ATK: " << player.playergetAtk() << endl;
-    cout << "DEF: " << player.playergetDef() << endl;
-    cout << "EXP: " << player.playergetExp() << endl;
-    cout << "Gold: " << player.playergetGold() << endl;
-    
-    cout << "==================" << endl;
+    player.playerStats();
 
     Enemy mob;
     Combat startBattle;

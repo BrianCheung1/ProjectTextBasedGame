@@ -120,6 +120,7 @@ void Character::playeraddExperience(int Exp){
 return all stats values of player
 */
 void Character::playerStats(){
+    cout << "====================" << endl;
     cout << "Player Class: " << getclassname() << endl;
     cout << "Lvl: " << playergetLevel() << endl;
     cout << "HP:  " << playergetHP() << endl;
@@ -127,6 +128,7 @@ void Character::playerStats(){
     cout << "DEF: " << playergetDef() << endl;
     cout << "EXP: " << playergetExp() << endl;
     cout << "Gold: " << playergetGold() << endl;
+    cout << "====================" << endl;
 }
 
 void Character::setPlayerGold(int gold){
