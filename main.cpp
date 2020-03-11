@@ -32,6 +32,8 @@ int main(){
     cout << "ATK: " << player.playergetAtk() << endl;
     cout << "DEF: " << player.playergetDef() << endl;
     cout << "EXP: " << player.playergetExp() << endl;
+    cout << "Gold: " << player.playergetGold() << endl;
+    
     cout << "==================" << endl;
 
     Enemy mob;
@@ -53,7 +55,7 @@ int main(){
     while(Gameplay != "no"){
         if(placeChoice == "1"){
             Town townAction;
-            townAction.whereInTown();
+            townAction.whereInTown(player);
             placeChoice = Going.nextPlace();
         }
         else if(placeChoice == "2"){

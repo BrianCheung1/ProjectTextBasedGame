@@ -24,7 +24,7 @@ string Places::town(){
     string townNumber;
     while(townNumber != "1" && townNumber != "2" && townNumber != "3" && townNumber != "4" && townNumber != "5"){
         cout << "What would you like to do?" << endl;
-        cout << "[1]Shop [2]Craft [3]Upgrade [4]Adventure" << endl;
+        cout << "[1]Shop [2]Stats [3]Rest [4]Exit Town" << endl;
         cin >> townNumber;
     }
     return townNumber;

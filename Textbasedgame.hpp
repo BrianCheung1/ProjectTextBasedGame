@@ -21,6 +21,9 @@ class Character{
     float playergetExp();
     void playeraddExperience(int Exp);
     void playerStats();
+    void setPlayerGold(int gold);
+    int playergetGold();
+
 
     private:
     string playername_;
@@ -30,6 +33,7 @@ class Character{
     float playerhp_;
     float playeratk_;
     float playerdef_;
+    int playergold_;
 
 };
 
@@ -79,10 +83,11 @@ class Places : public Character{
 class Town : public Places{
     public:
     Town();
-    string whereInTown();
-    string townShop();
-    string townCrafting();
-    string townUpgrade();
+    void whereInTown(Character &a);
+    void townShop(Character &a);
+    void townCrafting(Character &a);
+    void townUpgrade(Character &a);
+    void townSleep(Character &a);
     private:
 };
 

@@ -48,29 +48,24 @@ And different class names
 void Character::setClass(string choice){
     if(choice == "1"){
         playerclassname_ = "Warrior";
-        playerlevel_ = 1;
-        playerexperience_ = 10;
-        playerhp_ = 100;
         playeratk_ = 50;
         playerdef_ = 100;
 
     }
     if(choice == "2"){
         playerclassname_ = "Mage";
-        playerlevel_ = 1;
-        playerexperience_ = 10;
-        playerhp_ = 100;
         playeratk_ = 100;
         playerdef_ = 50;
     }
     if(choice == "3"){
         playerclassname_ = "Archer";
-        playerlevel_ = 1;
-        playerexperience_ = 10;
-        playerhp_ = 100;
         playeratk_ = 75;
         playerdef_ = 75;
     }
+    playerhp_ = 100;
+    playerexperience_ = 10;
+    playerlevel_ = 1;
+    playergold_ = 0;
 }
 
 /*
@@ -112,8 +107,13 @@ Adds experience to the player
 existing experience
 */
 void Character::playeraddExperience(int Exp){
-    playerexperience_ += Exp;
-    playerlevel_ = playerexperience_ * 0.1;
+    if(playerexperience_ <= 0){
+        playerexperience_ = 0;
+    }
+    else{
+        playerexperience_ += Exp;
+        playerlevel_ = playerexperience_ * 0.1;
+    }
 }
 
 /*
@@ -126,4 +126,13 @@ void Character::playerStats(){
     cout << "ATK: " << playergetAtk() << endl;
     cout << "DEF: " << playergetDef() << endl;
     cout << "EXP: " << playergetExp() << endl;
+    cout << "Gold: " << playergetGold() << endl;
+}
+
+void Character::setPlayerGold(int gold){
+    playergold_ += gold;
+}
+
+int Character::playergetGold(){
+    return playergold_;
 }
