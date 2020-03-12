@@ -1,12 +1,12 @@
 #include "Textbasedgame.hpp"
 
-Combat::Combat(){}
+Combat::Combat() {}
 
 /*
 if user chose to battle
 this calls for the change in character hp
 */
-void Combat::startPlayerCombat(Character &a, Enemy &b){
+void Combat::startPlayerCombat(Character& a, Enemy& b) {
 
     //Take total mob hp
     //Remove hp depending on player attack
@@ -14,7 +14,7 @@ void Combat::startPlayerCombat(Character &a, Enemy &b){
     //remove hp depedning on mob attack
     //return hp value of player and mob
     a.setPlayerHP(a.playergetHP() - b.EnemygetAtk());
-    cout << "Your HP:" << a.playergetHP() << endl;
+    cout << "Your HP: " << a.playergetHP() << endl;
 
 }
 
@@ -23,7 +23,7 @@ If user chose to battle
 This calls for the the change Enemy hp
 if enemy dies, provides exp to user
 */
-void Combat::startEnemyCombat(Enemy &a, Character &b){
+void Combat::startEnemyCombat(Enemy& a, Character& b) {
 
     //Take total mob hp
     //Remove hp depending on player attack
@@ -33,8 +33,8 @@ void Combat::startEnemyCombat(Enemy &a, Character &b){
     a.setEnemyHP(a.EnemygetHP() - b.playergetAtk());
     cout << "Enemy HP: " << a.EnemygetHP() << endl;
     srand(time(NULL));
-    int exp = rand() % 10 + 1;
-    int gold = rand() % 10 + 1;
+    int exp = rand() % 5 + 1;
+    int gold = rand() % 15 + 1;
     if (a.EnemygetHP() <= 0) {
         a.setEnemyHP(0);
         b.playeraddExperience(exp);
@@ -42,7 +42,7 @@ void Combat::startEnemyCombat(Enemy &a, Character &b){
         b.setPlayerGold(gold);
         cout << "You've gained " << gold << " Gold" << endl;
     }
-    else{
+    else {
         cout << "Enemy taunts you!" << endl;
     }
 }
@@ -53,25 +53,25 @@ or enemy hp is equal or below zero
 Added to function that would allow user to choose to run away
 if they didn't want to fight anymore
 */
-string Combat::endBattle(Character &a, Enemy &b){
+string Combat::endBattle(Character& a, Enemy& b) {
     string BattleEnded;
-    if(a.playergetHP() <= 0 || b.EnemygetHP() <= 0){
+    if (a.playergetHP() <= 0 || b.EnemygetHP() <= 0) {
         BattleEnded = "1";
     }
-    else{
+    else {
         /*
         in the case that enemy has not lost all their hp
         user is able to fight or run away
-        1- Fight 
+        1- Fight
         2- Run away
         */
         cout << "Would you like to battle again?" << endl;
-        cout << "[1]Yes [2] No"  << endl;
+        cout << "[1]Yes [2] No" << endl;
         cin >> BattleEnded;
-        if(BattleEnded == "1"){
+        if (BattleEnded == "1") {
             BattleEnded = "2";
         }
-        else if(BattleEnded == "2"){
+        else if (BattleEnded == "2") {
             BattleEnded = "1";
         }
     }
@@ -85,7 +85,7 @@ Asks if they want to fight
 Displays stats of mob
 Dispaly Hp of player and mob
 */
-void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
+void Combat::ActualCombat(Combat& c, Character& a, Enemy& b) {
     string BattleAgain;
     string BattleEnded;
     /*
@@ -101,9 +101,9 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
     Placed into a while loop to make sure that
     user input is in range of accepted choices
     */
-    while(BattleAgain != "1" && BattleAgain != "2"){
+    while (BattleAgain != "1" && BattleAgain != "2") {
         cout << "Would you like to battle? " << endl;
-        cout << "[1]Yes [2] No"  << endl;
+        cout << "[1]Yes [2] No" << endl;
         cin >> BattleAgain;
         BattleEnded = "2";
         /*
@@ -111,20 +111,20 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
         then the HP is calcuated
         and choice 2 is chosen no more battles
         */
-        while(BattleAgain == "1"){
+        while (BattleAgain == "1") {
             /*
             If user chose to battle, Hp would be displayed here
             of both the character
             and the enemy
             */
-            while(BattleEnded == "2"){
+            while (BattleEnded == "2") {
                 cout << "====================" << endl;
                 cout << "Battling..." << endl;
                 c.startPlayerCombat(a, b);
                 c.startEnemyCombat(b, a);
                 cout << "====================" << endl;
                 //end battle returns back 1/2 depending on user/enemy hp or if user wants to run away
-                BattleEnded = c.endBattle(a,b);
+                BattleEnded = c.endBattle(a, b);
             }
 
             /*
@@ -132,14 +132,14 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
             a new mob will be generated
             and user wwill be given opetion to fight again
             */
-            if(a.playergetHP() > 0 && b.EnemygetHP() <= 0){
+            if (a.playergetHP() > 0 && b.EnemygetHP() <= 0) {
                 cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
                 b.Enemystats();
                 cout << "HP:  " << b.EnemygetHP() << endl;
                 cout << "ATK: " << b.EnemygetAtk() << endl;
                 cout << "DEF: " << b.EnemygetDef() << endl;
                 cout << "Would you like to battle? " << endl;
-                cout << "[1]Yes [2] No"  << endl;
+                cout << "[1]Yes [2] No" << endl;
                 cin >> BattleAgain;
                 /*
                 while loop to ask question again
@@ -147,9 +147,9 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
                 Needed to place after the quesiton to ensure that battleagain can be called
                 or else there will be infinite loop
                 */
-                while(BattleAgain != "1" && BattleAgain != "2"){
+                while (BattleAgain != "1" && BattleAgain != "2") {
                     cout << "Would you like to battle again? " << endl;
-                    cout << "[1]Yes [2] No"  << endl;
+                    cout << "[1]Yes [2] No" << endl;
                     cin >> BattleAgain;
                 }
                 BattleEnded = "2";
@@ -157,19 +157,19 @@ void Combat::ActualCombat(Combat &c,Character &a, Enemy &b){
             /*
             if the user doesnt have enough hp then battles will end
             */
-            else if(a.playergetHP() <= 0){
+            else if (a.playergetHP() <= 0) {
                 BattleAgain = "2";
             }
             /*
             if the user chose to run away and the enemy still has hp
             combat function stops
             */
-            else if(BattleEnded == "1" && b.EnemygetHP() > 0){
+            else if (BattleEnded == "1" && b.EnemygetHP() > 0) {
                 BattleAgain = "2";
             }
         }
     }
 }
 
-    
+
 

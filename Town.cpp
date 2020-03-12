@@ -62,9 +62,9 @@ void Town::townSleep(Character &a){
         cin >> sleepChoice;
     }
     if(sleepChoice == "1" && a.playergetGold() >=25){
-        a.setPlayerGold(a.playergetGold() - 25);
+        a.setPlayerGold(-25);
         a.setPlayerHP(100);
-        cout << "You now have " << a.playergetGold() << " left" << endl;
+        cout << "You now have " << a.playergetGold() << " gold left" << endl;
     }
     else if(a.playergetGold() < 25){
         cout << "You dont have enough gold" << endl;

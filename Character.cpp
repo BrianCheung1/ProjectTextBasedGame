@@ -99,7 +99,7 @@ float Character::playergetDef(){
     return playerdef_;
 }
 
-float Character::playergetExp(){
+int Character::playergetExp(){
     return playerexperience_;
 };
 
@@ -114,7 +114,7 @@ void Character::playeraddExperience(int Exp){
     }
     else{
         playerexperience_ += Exp;
-        playerlevel_ = playerexperience_ * 0.1;
+        playerlevel_ = playerexperience_ * 1/10;
     }
 }
 

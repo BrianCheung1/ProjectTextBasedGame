@@ -18,7 +18,7 @@ class Character{
     void setPlayerHP(float health);
     float playergetAtk();
     float playergetDef();
-    float playergetExp();
+    int playergetExp();
     void playeraddExperience(int Exp);
     void playerStats();
     void setPlayerGold(int gold);
@@ -90,9 +90,9 @@ class Weapons{
     void AxeChoice(Character &a);
     void StaffChoice(Character &a);
     void BowChoice(Character &a);
-    void setAxe(string WhichWeapon);
-    void setStaff(string WhichWeapon);
-    void setBow(string WhichWeapon);
+    void setAxe(Character &a, string WhichWeapon);
+    void setStaff(Character &a,string WhichWeapon);
+    void setBow(Character &a,string WhichWeapon);
     int getWeaponATK();
     int getWeaponCost();
 
