@@ -14,7 +14,7 @@ void Combat::startPlayerCombat(Character& a, Enemy& b) {
     //remove hp depedning on mob attack
     //return hp value of player and mob
     srand(time(NULL));
-    int randomPlayerDef = rand() % int(a.playergetDef()/2) + 1;
+    int randomPlayerDef = (rand() % int(a.playergetDef()/2)) + 1;
     int dmg = b.EnemygetAtk() - randomPlayerDef;
     if(dmg <= 0){
         dmg = 0;
@@ -38,7 +38,7 @@ void Combat::startEnemyCombat(Enemy& a, Character& b) {
     //remove hp depedning on mob attack
     //return hp value of player and mob
     srand(time(NULL));
-    int enemyRandomDef = rand() % int(a.EnemygetDef()/2) + 1;
+    int enemyRandomDef = (rand() % int(a.EnemygetDef())) + 1;
     int dmg = b.playergetAtk() - enemyRandomDef;
     if(dmg <= 0){
         dmg = 0;
@@ -47,8 +47,8 @@ void Combat::startEnemyCombat(Enemy& a, Character& b) {
     cout << "You've dealt " << dmg << " damage" << endl;
     cout << "Enemy HP: " << a.EnemygetHP() << endl;
     srand(time(NULL));
-    int exp = rand() % 5 + 1;
-    int gold = rand() % 15 + 1;
+    int exp = (rand() % 5) + 1;
+    int gold = (rand() % 15) + 1;
     if (a.EnemygetHP() <= 0) {
         a.setEnemyHP(0);
         b.playeraddExperience(exp);
