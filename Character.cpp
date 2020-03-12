@@ -50,17 +50,19 @@ void Character::setClass(string choice){
         playerclassname_ = "Warrior";
         playeratk_ = 50;
         playerdef_ = 100;
-
+        playerWeapon_ = "Beginner's Axe";
     }
     if(choice == "2"){
         playerclassname_ = "Mage";
         playeratk_ = 100;
         playerdef_ = 50;
+        playerWeapon_ = "Beginner's Staff";
     }
     if(choice == "3"){
         playerclassname_ = "Archer";
         playeratk_ = 75;
         playerdef_ = 75;
+        playerWeapon_ = "Beginner's Bow";
     }
     playerhp_ = 100;
     playerexperience_ = 10;
@@ -128,13 +130,41 @@ void Character::playerStats(){
     cout << "DEF: " << playergetDef() << endl;
     cout << "EXP: " << playergetExp() << endl;
     cout << "Gold: " << playergetGold() << endl;
+    cout << "Weapon: " << getPlayerWeapon() << endl;
     cout << "====================" << endl;
 }
 
+/*
+sets a player gold the given amount + the amount they have
+*/
 void Character::setPlayerGold(int gold){
     playergold_ += gold;
 }
 
+/*
+returns the amount of gold a player has
+*/
 int Character::playergetGold(){
     return playergold_;
+}
+
+/*
+sets a player weapon to the one provided
+*/
+void Character::setPlayerWeapon(string weapon){
+    playerWeapon_ = weapon;
+}
+
+/*
+returns the players weapon
+*/
+string Character::getPlayerWeapon(){
+    return playerWeapon_;
+}
+
+/*
+sets the stat of a player to the given amount + what they have
+*/
+void Character::playerSetATK(int atk){
+    playeratk_ += atk;
 }

@@ -23,6 +23,9 @@ class Character{
     void playerStats();
     void setPlayerGold(int gold);
     int playergetGold();
+    void setPlayerWeapon(string weapon);
+    string getPlayerWeapon();
+    void playerSetATK(int atk);
 
 
     private:
@@ -34,6 +37,7 @@ class Character{
     float playeratk_;
     float playerdef_;
     int playergold_;
+    string playerWeapon_;
 
 };
 
@@ -79,8 +83,26 @@ class Places : public Character{
     private:
 };
 
+class Weapons{
+    public:
+    Weapons();
+    void weaponChoice(Character &a);
+    void AxeChoice(Character &a);
+    void StaffChoice(Character &a);
+    void BowChoice(Character &a);
+    void setAxe(string WhichWeapon);
+    void setStaff(string WhichWeapon);
+    void setBow(string WhichWeapon);
+    int getWeaponATK();
+    int getWeaponCost();
 
-class Town : public Places{
+    private:
+    int weaponATK_;
+    int WeaponCost_;
+    string weaponName_;
+};
+
+class Town : public Places, Weapons{
     public:
     Town();
     void whereInTown(Character &a);

@@ -26,28 +26,7 @@ in the shop, user can purchase different weapons
 Weapons give boost to atk
 */
 void Town::townShop(Character &a){   
-    string weaponChoice;
-    cout << "What weapons are you looking for?" << endl;
-    cout << "[1]Sword [2]Staff [3]Bow" << endl;
-    cin >> weaponChoice;
-    if(weaponChoice == "1"){
-        cout << "Swords" << endl;
-        cout << "[1]Orc Cleaver:    10 ATK, 100 Gold " << endl;
-        cout << "[2]Proud Glory:    20 ATK, 150 Gold" << endl;
-        cout << "[3]Heart Breaker:  30 ATK, 200 Gold " << endl;
-        cout << "[4]Flamed Edge:    40 ATK, 250 Gold " << endl;
-        cout << "[5]Divine Steel:   50 ATK, 300 Gold " << endl;
-        cout << "What would you like to do?" << endl;
-        cout << "[1]Purchase [2]Exit" << endl;
-        string shopChoice;
-        cin >> shopChoice;
-        if(shopChoice == "1"){
-            cout << "Which sword would you like to buy?" << endl;
-            cout << "[1] [2] [3] [4] [5]" << endl;
-            string swordChoice;
-            cin >> swordChoice;
-        }
-    }
+    weaponChoice(a);
     whereInTown(a);
 }
 
@@ -70,6 +49,11 @@ void Town::townUpgrade(Character &a){
     whereInTown(a);
 }
 
+/*
+this allows a player to heal up
+if they have enough gold
+they can sleep and heal back to full hp
+*/
 void Town::townSleep(Character &a){
     string sleepChoice;
     while(sleepChoice != "1" && sleepChoice != "2"){
@@ -77,9 +61,13 @@ void Town::townSleep(Character &a){
         cout << "[1]Sleep(25 Gold) [2]Exit" << endl;
         cin >> sleepChoice;
     }
-    if(sleepChoice == "1"){
+    if(sleepChoice == "1" && a.playergetGold() >=25){
         a.setPlayerGold(a.playergetGold() - 25);
         a.setPlayerHP(100);
+        cout << "You now have " << a.playergetGold() << " left" << endl;
+    }
+    else if(a.playergetGold() < 25){
+        cout << "You dont have enough gold" << endl;
     }
     whereInTown(a);
 }
