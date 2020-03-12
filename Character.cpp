@@ -36,7 +36,7 @@ Changes the user hp
 depending on the value provided through user input
 or other functions
 */
-void Character::setPlayerHP(float health){
+void Character::setPlayerHP(double health){
     playerhp_ = health;
 }
 
@@ -48,20 +48,20 @@ And different class names
 void Character::setClass(string choice){
     if(choice == "1"){
         playerclassname_ = "Warrior";
-        playeratk_ = 50;
-        playerdef_ = 100;
+        playeratk_ = 10;
+        playerdef_ = 30;
         playerWeapon_ = "Beginner's Axe";
     }
     if(choice == "2"){
         playerclassname_ = "Mage";
-        playeratk_ = 100;
-        playerdef_ = 50;
+        playeratk_ = 30;
+        playerdef_ = 10;
         playerWeapon_ = "Beginner's Staff";
     }
     if(choice == "3"){
         playerclassname_ = "Archer";
-        playeratk_ = 75;
-        playerdef_ = 75;
+        playeratk_ = 20;
+        playerdef_ = 20;
         playerWeapon_ = "Beginner's Bow";
     }
     playerhp_ = 100;
@@ -99,7 +99,7 @@ float Character::playergetDef(){
     return playerdef_;
 }
 
-int Character::playergetExp(){
+float Character::playergetExp(){
     return playerexperience_;
 };
 

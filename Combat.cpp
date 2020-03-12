@@ -13,7 +13,14 @@ void Combat::startPlayerCombat(Character& a, Enemy& b) {
     //Take total player attack
     //remove hp depedning on mob attack
     //return hp value of player and mob
-    a.setPlayerHP(a.playergetHP() - b.EnemygetAtk());
+    srand(time(NULL));
+    int randomPlayerDef = rand() % int(a.playergetDef()/2) + 1;
+    int dmg = b.EnemygetAtk() - randomPlayerDef;
+    if(dmg <= 0){
+        dmg = 0;
+    }
+    a.setPlayerHP(a.playergetHP() - dmg);
+    cout << "Enemy dealt " << dmg << " damage" << endl;
     cout << "Your HP: " << a.playergetHP() << endl;
 
 }
@@ -30,7 +37,14 @@ void Combat::startEnemyCombat(Enemy& a, Character& b) {
     //Take total player attack
     //remove hp depedning on mob attack
     //return hp value of player and mob
-    a.setEnemyHP(a.EnemygetHP() - b.playergetAtk());
+    srand(time(NULL));
+    int enemyRandomDef = rand() % int(a.EnemygetDef()/2) + 1;
+    int dmg = b.playergetAtk() - enemyRandomDef;
+    if(dmg <= 0){
+        dmg = 0;
+    }
+    a.setEnemyHP(a.EnemygetHP() - dmg);
+    cout << "You've dealt " << dmg << " damage" << endl;
     cout << "Enemy HP: " << a.EnemygetHP() << endl;
     srand(time(NULL));
     int exp = rand() % 5 + 1;

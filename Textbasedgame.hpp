@@ -15,10 +15,10 @@ class Character{
     void setClass(string choice);
     float playergetHP();
     int playergetLevel();
-    void setPlayerHP(float health);
+    void setPlayerHP(double health);
     float playergetAtk();
     float playergetDef();
-    int playergetExp();
+    float playergetExp();
     void playeraddExperience(int Exp);
     void playerStats();
     void setPlayerGold(int gold);
@@ -33,10 +33,10 @@ class Character{
     string playerclassname_;
     int playerlevel_;
     int playerexperience_;
-    float playerhp_;
+    double playerhp_;
     float playeratk_;
     float playerdef_;
-    int playergold_;
+    float playergold_;
     string playerWeapon_;
 
 };
