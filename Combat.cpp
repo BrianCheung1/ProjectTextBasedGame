@@ -14,9 +14,9 @@ void Combat::startPlayerCombat(Character& a, Enemy& b) {
     //remove hp depedning on mob attack
     //return hp value of player and mob
     srand(time(NULL));
-    int randomPlayerDef = (rand() % int(a.playergetDef()/2)) + 1;
-    int dmg = b.EnemygetAtk() - randomPlayerDef;
-    if(dmg <= 0){
+    int randomPlayerDef = (rand() % int(a.playergetDef()/2)) + 1; //gives a random def number
+    int dmg = b.EnemygetAtk() - randomPlayerDef;                  //the dmg from enemys attack - the random player def
+    if(dmg <= 0){                                                 //This way enemys dont heal us if they do negative dmg
         dmg = 0;
     }
     a.setPlayerHP(a.playergetHP() - dmg);
@@ -38,18 +38,18 @@ void Combat::startEnemyCombat(Enemy& a, Character& b) {
     //remove hp depedning on mob attack
     //return hp value of player and mob
     srand(time(NULL));
-    int enemyRandomDef = (rand() % int(a.EnemygetDef())) + 1;
-    int dmg = b.playergetAtk() - enemyRandomDef;
-    if(dmg <= 0){
-        dmg = 0;
+    int enemyRandomDef = (rand() % int(a.EnemygetDef())) + 1;       //gives a random def of the enemy
+    int dmg = b.playergetAtk() - enemyRandomDef;                    //the dmg from players attack - enemys random def
+    if(dmg <= 0){                                                   //this way if we do negative dmg we dont heal the enemy
+        dmg = 0;        
     }
     a.setEnemyHP(a.EnemygetHP() - dmg);
     cout << "You've dealt " << dmg << " damage" << endl;
     cout << "Enemy HP: " << a.EnemygetHP() << endl;
     srand(time(NULL));
-    int exp = (rand() % 5) + 1;
-    int gold = (rand() % 15) + 1;
     if (a.EnemygetHP() <= 0) {
+        int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
+        int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
         a.setEnemyHP(0);
         b.playeraddExperience(exp);
         cout << "You've gained " << exp << " Exp" << endl;
