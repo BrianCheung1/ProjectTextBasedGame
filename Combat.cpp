@@ -45,33 +45,38 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
             dmg = 0;        
         }
         a.setEnemyHP(a.EnemygetHP() - dmg);
-        cout << "You've dealt " << dmg << " damage" << endl;
-        cout << "Enemy HP: " << a.EnemygetHP() << endl;
         srand(time(NULL));
+        cout << "You've dealt " << dmg << " damage" << endl;
         if (a.EnemygetHP() <= 0) {
             int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
             int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
             a.setEnemyHP(0);
             b.playeraddExperience(exp);
+            cout << "Enemy HP: " << a.EnemygetHP() << endl;
             cout << "You've gained " << exp << " Exp" << endl;
             b.setPlayerGold(gold);
             cout << "You've gained " << gold << " Gold" << endl;
         }
+        else if(a.EnemygetHP() > 0){
+            cout << "Enemy HP: " << a.EnemygetHP() << endl;
+        }
     }
     else if(attack == "2"){
-        cout << "You used " << b.getPlayerSkill() << endl;
+        cout << "You used " << b.getPlayerSkill() << " and dealt " << b.getPlayerSkillDmg() << " damage" << endl;
         a.setEnemyHP(a.EnemygetHP() - b.getPlayerSkillDmg());
-        cout << "You've dealt " << b.getPlayerSkillDmg() << " damage" << endl;
-        cout << "Enemy HP: " << a.EnemygetHP() << endl;
         srand(time(NULL));
         if (a.EnemygetHP() <= 0) {
             int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
             int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
             a.setEnemyHP(0);
             b.playeraddExperience(exp);
+            cout << "Enemy HP: " << a.EnemygetHP() << endl;
             cout << "You've gained " << exp << " Exp" << endl;
             b.setPlayerGold(gold);
             cout << "You've gained " << gold << " Gold" << endl;
+        }
+        else if(a.EnemygetHP() > 0){
+            cout << "Enemy HP: " << a.EnemygetHP() << endl;
         }
     }
 }
