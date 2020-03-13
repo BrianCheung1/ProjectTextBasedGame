@@ -26,6 +26,8 @@ class Character{
     void setPlayerWeapon(string weapon);
     string getPlayerWeapon();
     void playerSetATK(int atk);
+    string getPlayerSkill();
+    int getPlayerSkillDmg();
 
 
     private:
@@ -38,6 +40,8 @@ class Character{
     float playerdef_;
     float playergold_;
     string playerWeapon_;
+    string playerskill_;
+    int playerskilldmg_;
 
 };
 
@@ -62,9 +66,10 @@ class Combat : public Character, Enemy {
     public:
     Combat();
     void startPlayerCombat(Character &a, Enemy &b);
-    void startEnemyCombat(Enemy &a, Character &b);
+    void startEnemyCombat(Enemy &a, Character &b, string attack);
     string endBattle(Character &a, Enemy &b);
-    void ActualCombat(Combat &c, Character &a, Enemy &b);
+    void ActualCombat(Combat &c, Character &a, Enemy &b);    
+
     private:
     
 };

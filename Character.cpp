@@ -51,18 +51,24 @@ void Character::setClass(string choice){
         playeratk_ = 10;
         playerdef_ = 30;
         playerWeapon_ = "Beginner's Axe";
+        playerskill_ = "Heavy Strike";
+        playerskilldmg_ = 10;
     }
     if(choice == "2"){
         playerclassname_ = "Mage";
         playeratk_ = 30;
         playerdef_ = 10;
         playerWeapon_ = "Beginner's Staff";
+        playerskill_ = "Fireball";
+        playerskilldmg_ = 10;
     }
     if(choice == "3"){
         playerclassname_ = "Archer";
         playeratk_ = 20;
         playerdef_ = 20;
         playerWeapon_ = "Beginner's Bow";
+        playerskill_ = "Rain of Arrows";
+        playerskilldmg_ = 10;
     }
     playerhp_ = 100;
     playerexperience_ = 10;
@@ -167,4 +173,13 @@ sets the stat of a player to the given amount + what they have
 */
 void Character::playerSetATK(int atk){
     playeratk_ += atk;
+}
+
+
+string Character::getPlayerSkill(){
+    return playerskill_;
+}
+
+int Character::getPlayerSkillDmg(){
+    return playerskilldmg_;
 }

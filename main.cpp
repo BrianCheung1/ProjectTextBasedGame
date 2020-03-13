@@ -49,7 +49,7 @@ int main(){
             placeChoice = Going.nextPlace();
         }
         else if(placeChoice == "2"){
-            startBattle.ActualCombat(startBattle,player,mob);
+            startBattle.ActualCombat(startBattle, player, mob);
             if(player.playergetHP() <= 0){
                 zeroHP.respawn(player);
                 placeChoice = Going.nextPlace();
