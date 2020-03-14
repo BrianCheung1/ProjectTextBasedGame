@@ -185,27 +185,45 @@ void Character::playerSetATK(int atk){
     playeratk_ += atk;
 }
 
-
+/*
+returns the skill of the player chosen class
+*/
 string Character::getPlayerSkill(){
     return playerskill_;
 }
 
+/*
+returns the dmg of the player chosen class
+*/
 int Character::getPlayerSkillDmg(){
     return playerskilldmg_;
 }
 
+/*
+returns the mana level of the player chosen class
+*/
 double Character::getPlayerMana(){
     return playermp_;
 }
 
+/*
+sets the mana by adding it ontop of the mana they already ahve
+*/
 void Character::setPlayerMana(double mana){
     playermp_ += mana;
 }
 
+/*
+gets the mana cost of the player chosen class skill
+*/
 int Character::getPlayerSkillManaCost(){
     return playerskillmanacost_;
 }
 
+/*
+this is implemented in case in the future, 
+player upgrade stats
+*/
 int Character::getPlayerDefaultMana(){
     return playerdefaultmp_;
 }

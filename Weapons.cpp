@@ -209,13 +209,17 @@ void Weapons::setBow(Character &a,string WhichWeapon){
 }
 
 /*
-Suppose to return the atk of the weapon
-however idk how to implement this atm
+provides the attack of a weapon
+that is in the shop
 */
 int Weapons::getWeaponATK(){
     return weaponATK_;
 }
 
+/*
+returns the cost of a weapon that is 
+in the shop for player to purchase
+*/
 int Weapons::getWeaponCost(){
     return WeaponCost_;
 }

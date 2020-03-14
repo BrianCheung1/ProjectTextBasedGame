@@ -16,4 +16,8 @@ Added skills
 Added shops with items for each class
 If player dies, exp/gold is lost
 
+3/14/202
+Added mana to player class
+Changed town rest to provide health and mana
+
   

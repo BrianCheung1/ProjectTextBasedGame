@@ -52,7 +52,7 @@ void Town::townUpgrade(Character &a){
 /*
 this allows a player to heal up
 if they have enough gold
-they can sleep and heal back to full hp
+they can sleep and heal back to full hp and mp
 */
 void Town::townSleep(Character &a){
     string sleepChoice;

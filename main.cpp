@@ -30,6 +30,7 @@ int main(){
     Combat startBattle;
     Places Going;
     string Gameplay;
+    //first choice of where a player wants to go
     string placeChoice = Going.nextPlace();
 
     Death zeroHP;
@@ -37,10 +38,10 @@ int main(){
     /*
     Main gameplay
     Gives the user different options of what they want to do
-    Town
-    Combat
-    Stats
-    Exit Game
+    Town      -1
+    Combat    -2
+    Stats     -3
+    Exit Game -4
     */
     while(Gameplay != "no"){
         if(placeChoice == "1"){
