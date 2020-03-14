@@ -64,6 +64,9 @@ void Town::townSleep(Character &a){
     if(sleepChoice == "1" && a.playergetGold() >=25){
         a.setPlayerGold(-25);
         a.setPlayerHP(100);
+        a.setPlayerMana(a.getPlayerDefaultMana());
+        cout << "Your HP: " << a.playergetHP() << endl;
+        cout << "Your MP: " << a.getPlayerMana() << endl;
         cout << "You now have " << a.playergetGold() << " gold left" << endl;
     }
     else if(a.playergetGold() < 25){

@@ -32,14 +32,13 @@ if enemy dies, provides exp to user
 */
 void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
 
-    //Take total mob hp
-    //Remove hp depending on player attack
-    //Take total player attack
-    //remove hp depedning on mob attack
-    //return hp value of player and mob
+    /*
+    attack 1 is basic attacks
+    takes no mana
+    */
     if(attack == "1"){
         srand(time(NULL));
-        int enemyRandomDef = (rand() % int(a.EnemygetDef()*2)) + 1;       //gives a random def of the enemy
+        int enemyRandomDef = (rand() % int(a.EnemygetDef())) + 1;       //gives a random def of the enemy
         int dmg = b.playergetAtk() - enemyRandomDef;                    //the dmg from players attack - enemys random def
         if(dmg <= 0){                                                   //this way if we do negative dmg we dont heal the enemy
             dmg = 0;        
@@ -61,22 +60,59 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
             cout << "Enemy HP: " << a.EnemygetHP() << endl;
         }
     }
+    /*
+    attack is special attack
+    takes mana to use
+    deals a constant dmg rather than random
+    */
     else if(attack == "2"){
-        cout << "You used " << b.getPlayerSkill() << " and dealt " << b.getPlayerSkillDmg() << " damage" << endl;
-        a.setEnemyHP(a.EnemygetHP() - b.getPlayerSkillDmg());
-        srand(time(NULL));
-        if (a.EnemygetHP() <= 0) {
-            int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
-            int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
-            a.setEnemyHP(0);
-            b.playeraddExperience(exp);
-            cout << "Enemy HP: " << a.EnemygetHP() << endl;
-            cout << "You've gained " << exp << " Exp" << endl;
-            b.setPlayerGold(gold);
-            cout << "You've gained " << gold << " Gold" << endl;
+        if(b.getPlayerMana() >= b.getPlayerSkillManaCost()){
+            b.setPlayerMana(-b.getPlayerSkillManaCost());
+            cout << "You used " << b.getPlayerSkill() << " and dealt " << b.getPlayerSkillDmg() << " damage" << endl;
+            a.setEnemyHP(a.EnemygetHP() - b.getPlayerSkillDmg());
+            srand(time(NULL));
+            if (a.EnemygetHP() <= 0) {
+                int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
+                int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
+                a.setEnemyHP(0);
+                b.playeraddExperience(exp);
+                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+                cout << "You've gained " << exp << " Exp" << endl;
+                b.setPlayerGold(gold);
+                cout << "You've gained " << gold << " Gold" << endl;
+            }
+            else if(a.EnemygetHP() > 0){
+                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+            }
         }
-        else if(a.EnemygetHP() > 0){
-            cout << "Enemy HP: " << a.EnemygetHP() << endl;
+        /*
+        in case user does not have enough mana
+        they will use basic attack instead
+        */
+        else if(b.getPlayerMana() < b.getPlayerSkillManaCost()){
+            cout << "You don't have enough mana. Using Basic attack Instead" << endl;
+            srand(time(NULL));
+            int enemyRandomDef = (rand() % int(a.EnemygetDef()*2)) + 1;       //gives a random def of the enemy
+            int dmg = b.playergetAtk() - enemyRandomDef;                    //the dmg from players attack - enemys random def
+            if(dmg <= 0){                                                   //this way if we do negative dmg we dont heal the enemy
+                dmg = 0;        
+            }
+            a.setEnemyHP(a.EnemygetHP() - dmg);
+            srand(time(NULL));
+            cout << "You've dealt " << dmg << " damage" << endl;
+            if (a.EnemygetHP() <= 0) {
+                int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
+                int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
+                a.setEnemyHP(0);
+                b.playeraddExperience(exp);
+                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+                cout << "You've gained " << exp << " Exp" << endl;
+                b.setPlayerGold(gold);
+                cout << "You've gained " << gold << " Gold" << endl;
+            }
+            else if(a.EnemygetHP() > 0){
+                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+            }
         }
     }
 }

@@ -49,26 +49,35 @@ void Character::setClass(string choice){
     if(choice == "1"){
         playerclassname_ = "Warrior";
         playeratk_ = 10;
-        playerdef_ = 30;
+        playerdef_ = 25;
         playerWeapon_ = "Beginner's Axe";
         playerskill_ = "Heavy Strike";
+        playerskillmanacost_ = 5;
         playerskilldmg_ = 10;
+        playermp_ = 15;
+        playerdefaultmp_ = 20;
     }
     if(choice == "2"){
         playerclassname_ = "Mage";
         playeratk_ = 30;
-        playerdef_ = 10;
+        playerdef_ = 5;
         playerWeapon_ = "Beginner's Staff";
         playerskill_ = "Fireball";
-        playerskilldmg_ = 10;
+        playerskillmanacost_ = 10;
+        playerskilldmg_ = 15;
+        playermp_ = 50;
+        playerdefaultmp_ = 50;
     }
     if(choice == "3"){
         playerclassname_ = "Archer";
         playeratk_ = 20;
-        playerdef_ = 20;
+        playerdef_ = 15;
         playerWeapon_ = "Beginner's Bow";
         playerskill_ = "Rain of Arrows";
+        playerskillmanacost_ = 10;
         playerskilldmg_ = 10;
+        playermp_ = 25;
+        playerdefaultmp_ = 20;
     }
     playerhp_ = 100;
     playerexperience_ = 10;
@@ -87,7 +96,7 @@ int Character::playergetLevel(){
 /*
 returns the value of players HP
 */
-float Character::playergetHP(){
+double Character::playergetHP(){
     return playerhp_;
 }
 
@@ -132,6 +141,7 @@ void Character::playerStats(){
     cout << "Player Class: " << getclassname() << endl;
     cout << "Lvl: " << playergetLevel() << endl;
     cout << "HP:  " << playergetHP() << endl;
+    cout << "MP:  " << getPlayerMana() << endl;
     cout << "ATK: " << playergetAtk() << endl;
     cout << "DEF: " << playergetDef() << endl;
     cout << "EXP: " << playergetExp() << endl;
@@ -182,4 +192,20 @@ string Character::getPlayerSkill(){
 
 int Character::getPlayerSkillDmg(){
     return playerskilldmg_;
+}
+
+double Character::getPlayerMana(){
+    return playermp_;
+}
+
+void Character::setPlayerMana(double mana){
+    playermp_ += mana;
+}
+
+int Character::getPlayerSkillManaCost(){
+    return playerskillmanacost_;
+}
+
+int Character::getPlayerDefaultMana(){
+    return playerdefaultmp_;
 }

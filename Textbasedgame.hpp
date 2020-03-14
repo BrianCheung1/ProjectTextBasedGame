@@ -13,7 +13,7 @@ class Character{
     string getclassname();
     void setName(string name);
     void setClass(string choice);
-    float playergetHP();
+    double playergetHP();
     int playergetLevel();
     void setPlayerHP(double health);
     float playergetAtk();
@@ -28,6 +28,10 @@ class Character{
     void playerSetATK(int atk);
     string getPlayerSkill();
     int getPlayerSkillDmg();
+    double getPlayerMana();
+    void setPlayerMana(double mana);
+    int getPlayerSkillManaCost();
+    int getPlayerDefaultMana();
 
 
     private:
@@ -36,12 +40,15 @@ class Character{
     int playerlevel_;
     int playerexperience_;
     double playerhp_;
+    double playermp_;
     float playeratk_;
     float playerdef_;
     float playergold_;
     string playerWeapon_;
     string playerskill_;
     int playerskilldmg_;
+    int playerskillmanacost_;
+    int playerdefaultmp_;
 
 };
 
