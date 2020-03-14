@@ -169,6 +169,7 @@ void Combat::ActualCombat(Combat& c, Character& a, Enemy& b) {
     */
     cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
     b.Enemystats();
+    b.harderEnemy(a);
     cout << "HP:  " << b.EnemygetHP() << endl;
     cout << "ATK: " << b.EnemygetAtk() << endl;
     cout << "DEF: " << b.EnemygetDef() << endl;
@@ -203,6 +204,7 @@ void Combat::ActualCombat(Combat& c, Character& a, Enemy& b) {
             if (a.playergetHP() > 0 && b.EnemygetHP() <= 0) {
                 cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
                 b.Enemystats();
+                b.harderEnemy(a);
                 cout << "HP:  " << b.EnemygetHP() << endl;
                 cout << "ATK: " << b.EnemygetAtk() << endl;
                 cout << "DEF: " << b.EnemygetDef() << endl;

@@ -15,8 +15,8 @@ int main(){
     string choice;
     cout << "What class would you like to play?" << endl;
     while(choice != "1" && choice != "2" && choice != "3"){
-    cout << "[1]Warrior [2]Mage [3]Archer" << endl;
-    cin >> choice;
+        cout << "[1]Warrior [2]Mage [3]Archer" << endl;
+        cin >> choice;
     }
 
     /*
@@ -68,3 +68,4 @@ int main(){
         }
     }
 }   
+

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <time.h>
+#include <math.h> 
 using namespace std;
 
 class Character{
@@ -32,9 +33,9 @@ class Character{
     void setPlayerMana(double mana);
     int getPlayerSkillManaCost();
     int getPlayerDefaultMana();
+    int getPlayerDefaultHealth();
 
-
-    private:
+private:
     string playername_;
     string playerclassname_;
     int playerlevel_;
@@ -49,7 +50,7 @@ class Character{
     int playerskilldmg_;
     int playerskillmanacost_;
     int playerdefaultmp_;
-
+    int playerdefaulthp_;
 };
 
 class Enemy{
@@ -61,8 +62,9 @@ class Enemy{
     float EnemygetAtk();
     float EnemygetDef();
     void setEnemyHP(float health);
+    void harderEnemy(Character &a);
 
-    private:
+private:
     string Enemyname_;
     float Enemyhp_;
     float Enemyatk_;

@@ -16,7 +16,7 @@ string Enemy::genRandomMob(){
 }
 
 /*
-Provideds the enemys with different stats
+Provides the enemys with different stats
 */
 void Enemy::Enemystats(){
     if(genRandomMob() == "Rat"){
@@ -55,63 +55,21 @@ void Enemy::Enemystats(){
 Provides value of enemys HP
 */
 float Enemy::EnemygetHP(){
-    float hp;
-    if(genRandomMob() == "Rat" || "Slime" || "Goblin"){
-       hp = Enemyhp_;
-    }
-    return hp;
+    return Enemyhp_;
 }
 
 /*
 Provides value of enemy attack
 */
 float Enemy::EnemygetAtk(){
-    float atk;
-    if(genRandomMob() == "Rat"){
-        atk = Enemyatk_;
-    }
-    if(genRandomMob() == "Slime"){
-        atk = Enemyatk_;
-    }
-    if(genRandomMob() == "Goblin"){
-        atk = Enemyatk_;
-    }
-    if(genRandomMob() == "Snake"){
-        atk = Enemyatk_;
-    }
-    if(genRandomMob() == "Fairy"){
-        atk = Enemyatk_;
-    }
-    if(genRandomMob() == "Butterball"){
-        atk = Enemyatk_;
-    }
-    return atk;
+    return Enemyatk_;
 }
 
 /*
 returns value of enemys defense
 */
 float Enemy::EnemygetDef(){
-    float def;
-    if(genRandomMob() == "Rat"){
-        def = Enemydef_;
-    }
-    if(genRandomMob() == "Slime"){
-        def = Enemydef_;
-    }
-    if(genRandomMob() == "Goblin"){
-        def = Enemydef_;
-    }
-    if(genRandomMob() == "Snake"){
-        def = Enemydef_;
-    }
-    if(genRandomMob() == "Fairy"){
-        def = Enemydef_;
-    }
-    if(genRandomMob() == "Butterball"){
-        def = Enemydef_;
-    }
-    return def;
+    return Enemydef_;
 }
 
 /*
@@ -120,3 +78,23 @@ sets the hp of the enemy
 void Enemy::setEnemyHP(float health){
     Enemyhp_ = health;
 }
+
+/*
+every five levels Enemys will have their stats
+increased by 2(Just for stats to look nice)
+*/
+void Enemy::harderEnemy(Character &a){
+    int playerlevel = floor(a.playergetLevel() / 5);
+    cout << playerlevel << endl;
+    if(playerlevel <= 0){
+        playerlevel = 1;
+    }
+    if(playerlevel > 1){
+        for(int i = 0; i < playerlevel - 1; i++){
+            Enemyhp_ *= 2;
+            Enemyatk_ *= 2;
+            Enemydef_ *= 2;
+        }
+    }
+}
+    

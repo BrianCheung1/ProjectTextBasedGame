@@ -80,6 +80,7 @@ void Character::setClass(string choice){
         playerdefaultmp_ = 20;
     }
     playerhp_ = 100;
+    playerdefaulthp_ = 100;
     playerexperience_ = 10;
     playerlevel_ = 1;
     playergold_ = 0;
@@ -226,4 +227,8 @@ player upgrade stats
 */
 int Character::getPlayerDefaultMana(){
     return playerdefaultmp_;
+}
+
+int Character::getPlayerDefaultHealth(){
+    return playerdefaulthp_;
 }

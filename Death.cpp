@@ -10,8 +10,18 @@ with random loss of exp/gold/hp
 void Death::respawn(Character &a) {
     cout << "You have died. You will respawn now" << endl;
     srand(time(NULL));
-    a.playeraddExperience((rand() % 25 + 1) - 25);
-    a.setPlayerHP(rand() % 25);
-    a.setPlayerGold(rand() % 25);
+
+    int expLost = (rand() % 25 + 1) - 25;
+    a.playeraddExperience(expLost);
+    cout << "You've lost " << abs(expLost) << " Exp" << endl;
+
+    int hpLost = rand() % 25;
+    a.setPlayerHP(a.getPlayerDefaultHealth() - hpLost);
+    cout << "You've lost " << hpLost << " HP" << endl;
+
+    int goldLost = rand() % 25;
+    a.setPlayerGold(-goldLost);
+    cout << "You've lost " << goldLost << " Gold" << endl;
+
     a.playerStats();
 }
