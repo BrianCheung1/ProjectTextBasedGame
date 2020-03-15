@@ -64,6 +64,16 @@ int main(){
             placeChoice = Going.nextPlace();
         }
         else if(placeChoice  == "4"){
+            Going.bossCave(startBattle, player, mob);
+            if(player.playergetHP() <= 0){
+                zeroHP.respawn(player);
+                placeChoice = Going.nextPlace();
+            }
+            else{
+                placeChoice = Going.nextPlace();
+            }
+        }
+        else if(placeChoice  == "5"){
             Gameplay = "no";
         }
     }

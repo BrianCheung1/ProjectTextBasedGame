@@ -21,6 +21,8 @@ Added mana to player class\
 Changed town rest to provide health and mana\
 Enemies will now get stronger every 5 levels \
 Their stats will be increased 2x\
-Added stats upgrade in town for 25G
+Added stats upgrade in town for 25G\
+Added Boss stats\
+Added Boss battle option
 
   

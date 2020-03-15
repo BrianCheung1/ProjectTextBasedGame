@@ -23,6 +23,7 @@ void Combat::startPlayerCombat(Character& a, Enemy& b) {
     cout << "Enemy dealt " << dmg << " damage" << endl;
     cout << "Your HP: " << a.playergetHP() << endl;
 
+
 }
 
 /*

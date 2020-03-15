@@ -68,6 +68,8 @@ class Enemy{
     float EnemygetDef();
     void setEnemyHP(float health);
     void harderEnemy(Character &a);
+    void bossStats();
+    string getEnemyname();
 
 private:
     string Enemyname_;
@@ -99,7 +101,7 @@ class Places : public Character{
     Places();
     string nextPlace();
     string town();
-    private:
+    void bossCave(Combat &c, Character &a,Enemy &b);
 };
 
 class Weapons{

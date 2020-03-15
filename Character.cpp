@@ -91,6 +91,9 @@ Returns the player level depending on
 their amount of experience
 */
 int Character::playergetLevel(){
+    if (playerlevel_ <= 0){
+        playerlevel_ = 1;
+    }
     return playerlevel_;
 }
 
@@ -116,6 +119,9 @@ float Character::playergetDef(){
 }
 
 float Character::playergetExp(){
+    if(playerexperience_ <= 0){
+        playerexperience_ = 0;
+    }
     return playerexperience_;
 };
 
@@ -156,6 +162,9 @@ sets a player gold the given amount + the amount they have
 */
 void Character::setPlayerGold(int gold){
     playergold_ = gold;
+    if(playergetGold() <= 0){
+        playergold_ = 0;
+    }
 }
 
 /*

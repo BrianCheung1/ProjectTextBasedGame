@@ -97,4 +97,14 @@ void Enemy::harderEnemy(Character &a){
         }
     }
 }
-    
+
+void Enemy::bossStats(){
+    Enemyname_ = "Dragon";
+    Enemyhp_ = 300;
+    Enemyatk_ = 100;
+    Enemydef_ = 100;
+}
+
+string Enemy::getEnemyname(){
+    return Enemyname_;
+}
