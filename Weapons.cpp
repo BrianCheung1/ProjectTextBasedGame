@@ -48,8 +48,8 @@ void Weapons::AxeChoice(Character &a){
         setAxe(a, axeChoice);
         if(a.getPlayerWeapon() != "Beginner's Axe"){
             a.setPlayerWeapon(weaponName_);
-            a.playerSetATK(weaponATK_);
-            a.setPlayerGold(-WeaponCost_);
+            a.playerSetATK(a.playergetAtk() + weaponATK_);
+            a.setPlayerGold(a.playergetGold()-WeaponCost_);
             cout << "You've equipped " << weaponName_ << endl;
             cout << "New ATK: " << a.playergetAtk() << endl;
             cout << "New Gold: " << a.playergetGold() << endl;
@@ -110,8 +110,8 @@ void Weapons::StaffChoice(Character &a){
         if(a.getPlayerWeapon() != "Beginner's Staff"){
             setStaff(a,staffChoice);
             a.setPlayerWeapon(weaponName_);
-            a.playerSetATK(weaponATK_);
-            a.setPlayerGold(-WeaponCost_);
+            a.playerSetATK(a.playergetAtk() + weaponATK_);
+            a.setPlayerGold(a.playergetGold()-WeaponCost_);
             cout << "You've equipped " << weaponName_ << endl;
             cout << "New ATK: " << a.playergetAtk() << endl;
             cout << "New Gold: " << a.playergetGold() << endl;
@@ -171,8 +171,8 @@ void Weapons::BowChoice(Character &a){
         if(a.getPlayerWeapon() != "Beginner's Bow"){
             setBow(a,bowChoice);
             a.setPlayerWeapon(weaponName_);
-            a.playerSetATK(weaponATK_);
-            a.setPlayerGold(-WeaponCost_);
+            a.playerSetATK(a.playergetAtk() + weaponATK_);
+            a.setPlayerGold(a.playergetGold() - WeaponCost_);
             cout << "You've equipped " << weaponName_ << endl;
             cout << "New ATK: " << a.playergetAtk() << endl;
             cout << "New Gold: " << a.playergetGold() << endl;

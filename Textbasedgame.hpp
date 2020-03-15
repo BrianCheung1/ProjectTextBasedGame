@@ -34,6 +34,10 @@ class Character{
     int getPlayerSkillManaCost();
     int getPlayerDefaultMana();
     int getPlayerDefaultHealth();
+    void setPlayerDefaultHealth(int health);
+    void setPlayerDefaultMana(int mana);
+    void setPlayerDef(int defense);
+
 
 private:
     string playername_;
@@ -51,6 +55,7 @@ private:
     int playerskillmanacost_;
     int playerdefaultmp_;
     int playerdefaulthp_;
+    
 };
 
 class Enemy{

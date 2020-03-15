@@ -16,6 +16,9 @@ void Town::whereInTown(Character &a) {
         whereInTown(a);
     }
     else if(townChoice == "3"){
+        townUpgrade(a);
+    }
+    else if(townChoice == "4"){
         townSleep(a);
     }
 }
@@ -42,10 +45,57 @@ void Town::townCrafting(Character &a){
 
 /*
 Upgrades will allow user to upgrade their stats
-HP,ATK,DEF
+HP,MP,ATK,DEF
+each upgrade is 25G
+if not enough gold, wont allow user to purchase
 */
 void Town::townUpgrade(Character &a){
     cout << "Upgrades: " << endl;
+    cout << "What stats would you like to upgrade?" << endl;
+    cout << "25 gold for an upgrade" << endl;
+    cout << "[1]HP(+10) [2]MP(+10) [3]ATK(+5) [4]DEF(+5) [5]Exit" << endl;
+    string upgrade;
+    cin >> upgrade;
+    if(upgrade == "1" && a.playergetGold() >= 25){
+        cout << "HP: " << a.getPlayerDefaultHealth() << endl;
+        a.setPlayerHP(100);
+        a.setPlayerHP(a.playergetHP() + 10);
+        cout << "New HP: " << a.getPlayerDefaultHealth() << endl;
+        
+    }
+    else if(upgrade == "1" && a.playergetGold() < 25){
+        cout << "You don't have enough gold" << endl;
+        townUpgrade(a);
+    }
+    else if(upgrade == "2" && a.playergetGold() >= 25){
+        cout << "MP: " << a.getPlayerDefaultMana() << endl;
+        a.setPlayerMana(a.getPlayerDefaultMana());
+        a.setPlayerMana(a.getPlayerMana() + 10);
+        cout << "New MP: " << a.getPlayerDefaultMana() << endl;
+    }
+    else if(upgrade == "2" && a.playergetGold() < 25){
+        cout << "You don't have enough gold" << endl;
+        townUpgrade(a);
+    }
+    else if(upgrade == "3" && a.playergetGold() >= 25){
+        cout << "ATK: " << a.playergetAtk() << endl;
+        a.playerSetATK(a.playergetAtk() + 5);
+        cout << "New ATK: " << a.playergetAtk() << endl;
+    }
+    else if(upgrade == "3" && a.playergetGold() < 25){
+        cout << "You don't have enough gold" << endl;
+        townUpgrade(a);
+    }
+    else if(upgrade == "4" && a.playergetGold() >= 25){
+        cout << "DEF: " << a.playergetDef() << endl;
+        a.setPlayerDef(a.playergetDef() + 5);
+        cout << "New DEF: " << a.playergetDef() << endl;
+    }
+    else if(upgrade == "4" && a.playergetGold() < 25){
+        cout << "You don't have enough gold" << endl;
+        townUpgrade(a);
+    }
+    
     whereInTown(a);
 }
 

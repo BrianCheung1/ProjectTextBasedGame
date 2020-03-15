@@ -129,7 +129,7 @@ void Character::playeraddExperience(int Exp){
         playerexperience_ = 0;
     }
     else{
-        playerexperience_ += Exp;
+        playerexperience_ = Exp;
         playerlevel_ = playerexperience_ * 1/10;
     }
 }
@@ -155,7 +155,7 @@ void Character::playerStats(){
 sets a player gold the given amount + the amount they have
 */
 void Character::setPlayerGold(int gold){
-    playergold_ += gold;
+    playergold_ = gold;
 }
 
 /*
@@ -183,7 +183,7 @@ string Character::getPlayerWeapon(){
 sets the stat of a player to the given amount + what they have
 */
 void Character::playerSetATK(int atk){
-    playeratk_ += atk;
+    playeratk_ = atk;
 }
 
 /*
@@ -211,7 +211,7 @@ double Character::getPlayerMana(){
 sets the mana by adding it ontop of the mana they already ahve
 */
 void Character::setPlayerMana(double mana){
-    playermp_ += mana;
+    playermp_ = mana;
 }
 
 /*
@@ -229,6 +229,31 @@ int Character::getPlayerDefaultMana(){
     return playerdefaultmp_;
 }
 
+/*
+returns the original health that the player class has
+*/
 int Character::getPlayerDefaultHealth(){
     return playerdefaulthp_;
+}
+
+/*
+sets the original health that the player class has
+*/
+void Character::setPlayerDefaultHealth(int health){
+    playerdefaulthp_ = health;
+}
+
+/*
+changes the mana of a players class to
+however much is added on top
+*/
+void Character::setPlayerDefaultMana(int mana){
+    playerdefaultmp_ = mana;
+}
+
+/*
+sets the defense of a a player to the given amount
+*/
+void Character::setPlayerDef(int defense){
+    playerdef_ = defense;
 }
