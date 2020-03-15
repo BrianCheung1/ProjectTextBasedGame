@@ -32,9 +32,9 @@ it will replace the equip they have now
 void Weapons::AxeChoice(Character &a){
     cout << "====================" << endl;
     cout << "Swords" << endl;
-    cout << "[1]Golden Axe:     10 ATK, 100 Gold " << endl;
-    cout << "[2]Death's Axe:    20 ATK, 150 Gold" << endl;
-    cout << "[3]Battle Axe:     30 ATK, 200 Gold " << endl;
+    cout << "[1]Golden Axe:     50 ATK,  300 Gold " << endl;
+    cout << "[2]Death's Axe:    100 ATK, 450 Gold" << endl;
+    cout << "[3]Battle Axe:     150 ATK, 600 Gold " << endl;
     cout << "====================" << endl;
     cout << "What would you like to do?" << endl;
     cout << "[1]Purchase [2]Exit" << endl;
@@ -68,20 +68,20 @@ void Weapons::setAxe(Character & a,string WhichWeapon){
     if(a.getPlayerWeapon() != "Beginner's Axe"){
         a.playerSetATK(-weaponATK_);
     }
-    if(WhichWeapon == "1" && a.playergetGold() >= 100){
+    if(WhichWeapon == "1" && a.playergetGold() >= 300){
         weaponName_ = "Golden Axe";
-        weaponATK_ = 10;
-        WeaponCost_ = 100;
+        weaponATK_ = 50;
+        WeaponCost_ = 300;
     }
-    if(WhichWeapon == "2" && a.playergetGold() >= 150){
+    if(WhichWeapon == "2" && a.playergetGold() >= 450){
         weaponName_ = "Death's Axe";
-        weaponATK_ = 20;
-        WeaponCost_ = 150;
+        weaponATK_ = 10;
+        WeaponCost_ = 450;
     }
-    if(WhichWeapon == "3" && a.playergetGold() >= 200){
+    if(WhichWeapon == "3" && a.playergetGold() >= 600){
         weaponName_ = "Battle Axe";
-        weaponATK_ = 30;
-        WeaponCost_ = 200;
+        weaponATK_ = 150;
+        WeaponCost_ = 600;
     }
 
 }
@@ -94,9 +94,9 @@ it will replace the equip they have now
 void Weapons::StaffChoice(Character &a){
     cout << "====================" << endl;
     cout << "Staffs" << endl;
-    cout << "[1]Great Staff:    10 ATK, 100 Gold " << endl;
-    cout << "[2]Grand Staff:    20 ATK, 150 Gold" << endl;
-    cout << "[3]War Staff:      30 ATK, 200 Gold " << endl;
+    cout << "[1]Great Staff:    50 ATK,  300 Gold " << endl;
+    cout << "[2]Grand Staff:    100 ATK, 450 Gold" << endl;
+    cout << "[3]War Staff:      150 ATK, 600 Gold " << endl;
     cout << "====================" << endl;
     cout << "What would you like to do?" << endl;
     cout << "[1]Purchase [2]Exit" << endl;
@@ -130,20 +130,20 @@ void Weapons::setStaff(Character &a,string WhichWeapon){
     if(a.getPlayerWeapon() != "Beginner's Staff"){
         a.playerSetATK(-weaponATK_);
     }
-    if(WhichWeapon == "1"&& a.playergetGold() >= 100){
+    if(WhichWeapon == "1"&& a.playergetGold() >= 300){
         weaponName_ = "Golden Staff";
-        weaponATK_ = 10;
-        WeaponCost_ = 100;
+        weaponATK_ = 50;
+        WeaponCost_ = 300;
     }
-    if(WhichWeapon == "2"&& a.playergetGold() >= 150){
+    if(WhichWeapon == "2"&& a.playergetGold() >= 450){
         weaponName_ = "Death's Staff";
-        weaponATK_ = 20;
-        WeaponCost_ = 150;
+        weaponATK_ = 100;
+        WeaponCost_ = 450;
     }
-    if(WhichWeapon == "3"&& a.playergetGold() >= 200){
+    if(WhichWeapon == "3"&& a.playergetGold() >= 600){
         weaponName_ = "Battle Staff";
-        weaponATK_ = 30;
-        WeaponCost_ = 2000;
+        weaponATK_ = 150;
+        WeaponCost_ = 600;
     }
 }
 /*
@@ -155,9 +155,9 @@ it will replace the equip they have now
 void Weapons::BowChoice(Character &a){
     cout << "====================" << endl;
     cout << "Bows" << endl;
-    cout << "[1]Striker Bow:    10 ATK, 100 Gold " << endl;
-    cout << "[2]Steel Bow:      20 ATK, 150 Gold" << endl;
-    cout << "[3]Phoenix Bow:    30 ATK, 200 Gold " << endl;
+    cout << "[1]Striker Bow:    50 ATK,  300 Gold " << endl;
+    cout << "[2]Steel Bow:      100 ATK, 450 Gold" << endl;
+    cout << "[3]Phoenix Bow:    150 ATK, 600 Gold " << endl;
     cout << "====================" << endl;
     cout << "What would you like to do?" << endl;
     cout << "[1]Purchase [2]Exit" << endl;
@@ -191,20 +191,20 @@ void Weapons::setBow(Character &a,string WhichWeapon){
     if(a.getPlayerWeapon() != "Beginner's Bow"){
         a.playerSetATK(-weaponATK_);
     }
-    if(WhichWeapon == "1"&& a.playergetGold() >= 100){
+    if(WhichWeapon == "1"&& a.playergetGold() >= 300){
         weaponName_ = "Golden Bow";
-        weaponATK_ = 10;
-        WeaponCost_ = 100;
+        weaponATK_ = 50;
+        WeaponCost_ = 300;
     }
-    if(WhichWeapon == "2"&& a.playergetGold() >= 150){
+    if(WhichWeapon == "2"&& a.playergetGold() >= 450){
         weaponName_ = "Death's Bow";
-        weaponATK_ = 20;
-        WeaponCost_ = 150;
+        weaponATK_ = 100;
+        WeaponCost_ = 450;
     }
-    if(WhichWeapon == "3"&& a.playergetGold() >= 200){
+    if(WhichWeapon == "3"&& a.playergetGold() >= 600){
         weaponName_ = "Battle Bow";
-        weaponATK_ = 30;
-        WeaponCost_ = 2000;
+        weaponATK_ = 150;
+        WeaponCost_ = 600;
     }
 }
 
