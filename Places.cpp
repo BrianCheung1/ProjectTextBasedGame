@@ -36,9 +36,9 @@ void Places::bossCave(Combat &c, Character &a, Enemy &b){
     string BossBattleChoice;
 
     cout << "Boss Name: " << b.getEnemyname() << endl;
-    cout << "HP: " << b.EnemygetHP() << endl;
-    cout << "ATK: " << b.EnemygetAtk() << endl;
-    cout << "DEF: " << b.EnemygetDef() << endl;
+    cout << "HP: " << b.getEnemyHP() << endl;
+    cout << "ATK: " << b.getEnemyAtk() << endl;
+    cout << "DEF: " << b.getEnemyDef() << endl;
     cout << "Would You Like To Battle?" << endl;
     cout << "[1]Basic Attack [2]Special Attack [3]Run Away" << endl;
     cin >> BossBattleChoice;
@@ -47,13 +47,13 @@ void Places::bossCave(Combat &c, Character &a, Enemy &b){
     while(BossBattleChoice == "1" || BossBattleChoice == "2"){
         c.startPlayerCombat(a, b);
         c.startEnemyCombat(b, a, attack);
-        if(a.playergetHP() > 0){
+        if(a.getPlayerHP() > 0){
         cout << "Would You Like To Battle? Testing" << endl;
         cout << "[1]Basic Attack [2]Special Attack [3]Run Away" << endl;
         cin >> BossBattleChoice;
         attack = BossBattleChoice;
         }
-        else if(a.playergetHP() <= 0){
+        else if(a.getPlayerHP() <= 0){
             BossBattleChoice = "3";
         }
     }

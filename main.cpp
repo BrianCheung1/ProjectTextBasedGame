@@ -34,7 +34,6 @@ int main(){
     string placeChoice = Going.nextPlace();
 
     Death zeroHP;
-    
     /*
     Main gameplay
     Gives the user different options of what they want to do
@@ -51,7 +50,7 @@ int main(){
         }
         else if(placeChoice == "2"){
             startBattle.ActualCombat(startBattle, player, mob);
-            if(player.playergetHP() <= 0){
+            if(player.getPlayerHP() <= 0){
                 zeroHP.respawn(player);
                 placeChoice = Going.nextPlace();
             }
@@ -65,7 +64,7 @@ int main(){
         }
         else if(placeChoice  == "4"){
             Going.bossCave(startBattle, player, mob);
-            if(player.playergetHP() <= 0){
+            if(player.getPlayerHP() <= 0){
                 zeroHP.respawn(player);
                 placeChoice = Going.nextPlace();
             }

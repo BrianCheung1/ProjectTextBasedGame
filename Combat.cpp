@@ -14,14 +14,14 @@ void Combat::startPlayerCombat(Character& a, Enemy& b) {
     //remove hp depedning on mob attack
     //return hp value of player and mob
     srand(time(NULL));
-    int randomPlayerDef = (rand() % int(a.playergetDef()/2)) + 1; //gives a random def number
-    int dmg = b.EnemygetAtk() - randomPlayerDef;                  //the dmg from enemys attack - the random player def
+    int randomPlayerDef = (rand() % int(a.getPlayerDef()/2)) + 1; //gives a random def number
+    int dmg = b.getEnemyAtk() - randomPlayerDef;                  //the dmg from enemys attack - the random player def
     if(dmg <= 0){                                                 //This way enemys dont heal us if they do negative dmg
         dmg = 0;
     }
-    a.setPlayerHP(a.playergetHP() - dmg);
+    a.setPlayerHP(a.getPlayerHP() - dmg);
     cout << "Enemy dealt " << dmg << " damage" << endl;
-    cout << "Your HP: " << a.playergetHP() << endl;
+    cout << "Your HP: " << a.getPlayerHP() << endl;
 
 
 }
@@ -39,26 +39,26 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
     */
     if(attack == "1"){
         srand(time(NULL));
-        int enemyRandomDef = (rand() % int(a.EnemygetDef())) + 1;       //gives a random def of the enemy
-        int dmg = b.playergetAtk() - enemyRandomDef;                    //the dmg from players attack - enemys random def
+        int enemyRandomDef = (rand() % int(a.getEnemyDef())) + 1;       //gives a random def of the enemy
+        int dmg = b.getPlayerAtk() - enemyRandomDef;                    //the dmg from players attack - enemys random def
         if(dmg <= 0){                                                   //this way if we do negative dmg we dont heal the enemy
             dmg = 0;        
         }
-        a.setEnemyHP(a.EnemygetHP() - dmg);
+        a.setEnemyHP(a.getEnemyHP() - dmg);
         srand(time(NULL));
         cout << "You've dealt " << dmg << " damage" << endl;
-        if (a.EnemygetHP() <= 0) {
+        if (a.getEnemyHP() <= 0) {
             int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
             int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
             a.setEnemyHP(0);
-            b.playeraddExperience(b.playergetExp() + exp);
-            cout << "Enemy HP: " << a.EnemygetHP() << endl;
+            b.addPlayerExp(b.getPlayerExp() + exp);
+            cout << "Enemy HP: " << a.getEnemyHP() << endl;
             cout << "You've gained " << exp << " Exp" << endl;
-            b.setPlayerGold(b.playergetGold() + gold);
+            b.setPlayerGold(b.getPlayerGold() + gold);
             cout << "You've gained " << gold << " Gold" << endl;
         }
-        else if(a.EnemygetHP() > 0){
-            cout << "Enemy HP: " << a.EnemygetHP() << endl;
+        else if(a.getEnemyHP() > 0){
+            cout << "Enemy HP: " << a.getEnemyHP() << endl;
         }
     }
     /*
@@ -70,20 +70,20 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
         if(b.getPlayerMana() >= b.getPlayerSkillManaCost()){
             b.setPlayerMana(b.getPlayerMana() - b.getPlayerSkillManaCost());
             cout << "You used " << b.getPlayerSkill() << " and dealt " << b.getPlayerSkillDmg() << " damage" << endl;
-            a.setEnemyHP(a.EnemygetHP() - b.getPlayerSkillDmg());
+            a.setEnemyHP(a.getEnemyHP() - b.getPlayerSkillDmg());
             srand(time(NULL));
-            if (a.EnemygetHP() <= 0) {
+            if (a.getEnemyHP() <= 0) {
                 int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
                 int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
                 a.setEnemyHP(0);
-                b.playeraddExperience(b.playergetExp() + exp);
-                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+                b.addPlayerExp(b.getPlayerExp() + exp);
+                cout << "Enemy HP: " << a.getEnemyHP() << endl;
                 cout << "You've gained " << exp << " Exp" << endl;
-                b.setPlayerGold(b.playergetGold() + gold);
+                b.setPlayerGold(b.getPlayerGold() + gold);
                 cout << "You've gained " << gold << " Gold" << endl;
             }
-            else if(a.EnemygetHP() > 0){
-                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+            else if(a.getEnemyHP() > 0){
+                cout << "Enemy HP: " << a.getEnemyHP() << endl;
             }
         }
         /*
@@ -93,26 +93,26 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
         else if(b.getPlayerMana() < b.getPlayerSkillManaCost()){
             cout << "You don't have enough mana. Using Basic attack Instead" << endl;
             srand(time(NULL));
-            int enemyRandomDef = (rand() % int(a.EnemygetDef()*2)) + 1;       //gives a random def of the enemy
-            int dmg = b.playergetAtk() - enemyRandomDef;                    //the dmg from players attack - enemys random def
+            int enemyRandomDef = (rand() % int(a.getEnemyDef()*2)) + 1;       //gives a random def of the enemy
+            int dmg = b.getPlayerAtk() - enemyRandomDef;                    //the dmg from players attack - enemys random def
             if(dmg <= 0){                                                   //this way if we do negative dmg we dont heal the enemy
                 dmg = 0;        
             }
-            a.setEnemyHP(a.EnemygetHP() - dmg);
+            a.setEnemyHP(a.getEnemyHP() - dmg);
             srand(time(NULL));
             cout << "You've dealt " << dmg << " damage" << endl;
-            if (a.EnemygetHP() <= 0) {
+            if (a.getEnemyHP() <= 0) {
                 int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
                 int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
                 a.setEnemyHP(0);
-                b.playeraddExperience(b.playergetExp() + exp);
-                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+                b.addPlayerExp(b.getPlayerExp() + exp);
+                cout << "Enemy HP: " << a.getEnemyHP() << endl;
                 cout << "You've gained " << exp << " Exp" << endl;
-                b.setPlayerGold(b.playergetGold() + gold);
+                b.setPlayerGold(b.getPlayerGold() + gold);
                 cout << "You've gained " << gold << " Gold" << endl;
             }
-            else if(a.EnemygetHP() > 0){
-                cout << "Enemy HP: " << a.EnemygetHP() << endl;
+            else if(a.getEnemyHP() > 0){
+                cout << "Enemy HP: " << a.getEnemyHP() << endl;
             }
         }
     }
@@ -126,7 +126,7 @@ if they didn't want to fight anymore
 */
 string Combat::endBattle(Character& a, Enemy& b) {
     string BattleEnded;
-    if (a.playergetHP() <= 0 || b.EnemygetHP() <= 0) {
+    if (a.getPlayerHP() <= 0 || b.getEnemyHP() <= 0) {
         BattleEnded = "3";
     }
     else {
@@ -171,9 +171,9 @@ void Combat::ActualCombat(Combat& c, Character& a, Enemy& b) {
     cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
     b.Enemystats();
     b.harderEnemy(a);
-    cout << "HP:  " << b.EnemygetHP() << endl;
-    cout << "ATK: " << b.EnemygetAtk() << endl;
-    cout << "DEF: " << b.EnemygetDef() << endl;
+    cout << "HP:  " << b.getEnemyHP() << endl;
+    cout << "ATK: " << b.getEnemyAtk() << endl;
+    cout << "DEF: " << b.getEnemyDef() << endl;
     /*
     This first while loop is to make sure that the user provides the correct 
     input of 1/2/3
@@ -197,35 +197,43 @@ void Combat::ActualCombat(Combat& c, Character& a, Enemy& b) {
             cout << "====================" << endl;
             BattleAgain = c.endBattle(a, b);  
             attack = BattleAgain;   //this is to provide the users choice of basic or special atk
-            /*
-            after the battle if the player still has hp
-            and the enemy is killed
-            player is provided with a choice to fight a new mob
-            */
-            if (a.playergetHP() > 0 && b.EnemygetHP() <= 0) {
-                cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
-                b.Enemystats();
-                b.harderEnemy(a);
-                cout << "HP:  " << b.EnemygetHP() << endl;
-                cout << "ATK: " << b.EnemygetAtk() << endl;
-                cout << "DEF: " << b.EnemygetDef() << endl;
-                cout << "Would you like to battle again? " << endl;
-                cout << "[1]Basic Attack [2]Special Attack [3]Run Away" << endl;
-                cin >> BattleAgain;
-                attack = BattleAgain;
+            if(b.getEnemyHP() <= 0){
+                cout << "[1]Continue Battling [2]Leave" << endl;
+                string continueBattle;
+                cin >> continueBattle;
+                //Provides choice to battle or go to town
+                if(continueBattle == "1"){
+                /*
+                after the battle if the player still has hp
+                and the enemy is killed
+                player is provided with a choice to fight a new mob
+                */
+                    if (a.getPlayerHP() > 0 && b.getEnemyHP() <= 0) {
+                        cout << "New Enemy: " << b.genRandomMob() << " entered the battle" << endl;
+                        b.Enemystats();
+                        b.harderEnemy(a);
+                        cout << "HP:  " << b.getEnemyHP() << endl;
+                        cout << "ATK: " << b.getEnemyAtk() << endl;
+                        cout << "DEF: " << b.getEnemyDef() << endl;
+                        cout << "Would you like to battle again? " << endl;
+                        cout << "[1]Basic Attack [2]Special Attack [3]Run Away" << endl;
+                        cin >> BattleAgain;
+                        attack = BattleAgain;
+                    }
+                }
             }
         }
         /*
         if the user doesn't have enough hp then battles will end
         */
-        if (a.playergetHP() <= 0) {
+        if (a.getPlayerHP() <= 0) {
             BattleAgain = "3";
         }
         /*
         if the user chose to run away and the enemy still has hp
         combat function stops
         */
-        else if (BattleEnded == "3" && b.EnemygetHP() > 0) {
+        else if (BattleEnded == "3" && b.getEnemyHP() > 0) {
             BattleAgain = "3";
         }
     }

@@ -46,15 +46,15 @@ void Weapons::AxeChoice(Character &a){
         string axeChoice;
         cin >> axeChoice;
         setAxe(a, axeChoice);
-        if(a.getPlayerWeapon() != "Beginner's Axe"){
+        if(a.getPlayerGold() >= WeaponCost_){
             a.setPlayerWeapon(weaponName_);
-            a.playerSetATK(a.playergetAtk() + weaponATK_);
-            a.setPlayerGold(a.playergetGold()-WeaponCost_);
+            a.setPlayerAtk(a.getPlayerAtk() + weaponATK_);
+            a.setPlayerGold(a.getPlayerGold()-WeaponCost_);
             cout << "You've equipped " << weaponName_ << endl;
-            cout << "New ATK: " << a.playergetAtk() << endl;
-            cout << "New Gold: " << a.playergetGold() << endl;
+            cout << "New ATK: " << a.getPlayerAtk() << endl;
+            cout << "New Gold: " << a.getPlayerGold() << endl;
         }
-        else if(a.getPlayerWeapon() == weaponName_ || a.getPlayerWeapon() == "Beginner's Axe"){
+        else if(a.getPlayerGold() < WeaponCost_){
             cout << "Not enough gold" << endl;
         }
     }
@@ -66,19 +66,19 @@ provides their name,atk, and cost
 */
 void Weapons::setAxe(Character & a,string WhichWeapon){
     if(a.getPlayerWeapon() != "Beginner's Axe"){
-        a.playerSetATK(-weaponATK_);
+        a.setPlayerAtk(a.getPlayerAtk() -weaponATK_);
     }
-    if(WhichWeapon == "1" && a.playergetGold() >= 300){
+    if(WhichWeapon == "1" && a.getPlayerGold() >= 300){
         weaponName_ = "Golden Axe";
         weaponATK_ = 50;
         WeaponCost_ = 300;
     }
-    if(WhichWeapon == "2" && a.playergetGold() >= 450){
+    if(WhichWeapon == "2" && a.getPlayerGold() >= 450){
         weaponName_ = "Death's Axe";
-        weaponATK_ = 10;
+        weaponATK_ = 100;
         WeaponCost_ = 450;
     }
-    if(WhichWeapon == "3" && a.playergetGold() >= 600){
+    if(WhichWeapon == "3" && a.getPlayerGold() >= 600){
         weaponName_ = "Battle Axe";
         weaponATK_ = 150;
         WeaponCost_ = 600;
@@ -107,16 +107,16 @@ void Weapons::StaffChoice(Character &a){
         cout << "[1] [2] [3]" << endl;
         string staffChoice;
         cin >> staffChoice;
-        if(a.getPlayerWeapon() != "Beginner's Staff"){
+        if(a.getPlayerGold() >= WeaponCost_){
             setStaff(a,staffChoice);
             a.setPlayerWeapon(weaponName_);
-            a.playerSetATK(a.playergetAtk() + weaponATK_);
-            a.setPlayerGold(a.playergetGold()-WeaponCost_);
+            a.setPlayerAtk(a.getPlayerAtk() + weaponATK_);
+            a.setPlayerGold(a.getPlayerGold()-WeaponCost_);
             cout << "You've equipped " << weaponName_ << endl;
-            cout << "New ATK: " << a.playergetAtk() << endl;
-            cout << "New Gold: " << a.playergetGold() << endl;
+            cout << "New ATK: " << a.getPlayerAtk() << endl;
+            cout << "New Gold: " << a.getPlayerGold() << endl;
         }
-        else if(a.getPlayerWeapon() == weaponName_ || a.getPlayerWeapon() == "Beginner's Staff"){
+        else if(a.getPlayerGold() < WeaponCost_){
             cout << "Not enough gold" << endl;
         }
     }
@@ -128,19 +128,19 @@ provides their name,atk, and cost
 */
 void Weapons::setStaff(Character &a,string WhichWeapon){
     if(a.getPlayerWeapon() != "Beginner's Staff"){
-        a.playerSetATK(-weaponATK_);
+        a.setPlayerAtk(a.getPlayerAtk()-weaponATK_);
     }
-    if(WhichWeapon == "1"&& a.playergetGold() >= 300){
+    if(WhichWeapon == "1"&& a.getPlayerGold() >= 300){
         weaponName_ = "Golden Staff";
         weaponATK_ = 50;
         WeaponCost_ = 300;
     }
-    if(WhichWeapon == "2"&& a.playergetGold() >= 450){
+    if(WhichWeapon == "2"&& a.getPlayerGold() >= 450){
         weaponName_ = "Death's Staff";
         weaponATK_ = 100;
         WeaponCost_ = 450;
     }
-    if(WhichWeapon == "3"&& a.playergetGold() >= 600){
+    if(WhichWeapon == "3"&& a.getPlayerGold() >= 600){
         weaponName_ = "Battle Staff";
         weaponATK_ = 150;
         WeaponCost_ = 600;
@@ -168,16 +168,16 @@ void Weapons::BowChoice(Character &a){
         cout << "[1] [2] [3]" << endl;
         string bowChoice;
         cin >> bowChoice;
-        if(a.getPlayerWeapon() != "Beginner's Bow"){
+        if(a.getPlayerGold() >= WeaponCost_){
             setBow(a,bowChoice);
             a.setPlayerWeapon(weaponName_);
-            a.playerSetATK(a.playergetAtk() + weaponATK_);
-            a.setPlayerGold(a.playergetGold() - WeaponCost_);
+            a.setPlayerAtk(a.getPlayerAtk() + weaponATK_);
+            a.setPlayerGold(a.getPlayerGold() - WeaponCost_);
             cout << "You've equipped " << weaponName_ << endl;
-            cout << "New ATK: " << a.playergetAtk() << endl;
-            cout << "New Gold: " << a.playergetGold() << endl;
+            cout << "New ATK: " << a.getPlayerAtk() << endl;
+            cout << "New Gold: " << a.getPlayerGold() << endl;
         }
-        else if(a.getPlayerWeapon() == weaponName_ || a.getPlayerWeapon() == "Beginner's Bow"){
+        else if(a.getPlayerGold() < WeaponCost_){
             cout << "Not enough gold" << endl;
         }
     }
@@ -189,19 +189,19 @@ provides their name,atk, and cost
 */
 void Weapons::setBow(Character &a,string WhichWeapon){
     if(a.getPlayerWeapon() != "Beginner's Bow"){
-        a.playerSetATK(-weaponATK_);
+        a.setPlayerAtk(a.getPlayerAtk()-weaponATK_);
     }
-    if(WhichWeapon == "1"&& a.playergetGold() >= 300){
+    if(WhichWeapon == "1"&& a.getPlayerGold() >= 300){
         weaponName_ = "Golden Bow";
         weaponATK_ = 50;
         WeaponCost_ = 300;
     }
-    if(WhichWeapon == "2"&& a.playergetGold() >= 450){
+    if(WhichWeapon == "2"&& a.getPlayerGold() >= 450){
         weaponName_ = "Death's Bow";
         weaponATK_ = 100;
         WeaponCost_ = 450;
     }
-    if(WhichWeapon == "3"&& a.playergetGold() >= 600){
+    if(WhichWeapon == "3"&& a.getPlayerGold() >= 600){
         weaponName_ = "Battle Bow";
         weaponATK_ = 150;
         WeaponCost_ = 600;

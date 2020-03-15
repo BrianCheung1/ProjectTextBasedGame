@@ -12,7 +12,7 @@ void Death::respawn(Character &a) {
     srand(time(NULL));
 
     int expLost = (rand() % 25 + 1) - 25;
-    a.playeraddExperience(expLost);
+    a.addPlayerExp(a.getPlayerExp() - expLost);
     cout << "You've lost " << abs(expLost) << " Exp" << endl;
 
     int hpLost = rand() % 25;

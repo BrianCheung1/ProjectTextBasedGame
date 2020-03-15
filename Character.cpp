@@ -90,7 +90,7 @@ void Character::setClass(string choice){
 Returns the player level depending on 
 their amount of experience
 */
-int Character::playergetLevel(){
+int Character::getPlayerLevel(){
     if (playerlevel_ <= 0){
         playerlevel_ = 1;
     }
@@ -100,25 +100,25 @@ int Character::playergetLevel(){
 /*
 returns the value of players HP
 */
-double Character::playergetHP(){
+double Character::getPlayerHP(){
     return playerhp_;
 }
 
 /*
 Returns the value of the players attack
 */
-float Character::playergetAtk(){
+float Character::getPlayerAtk(){
     return playeratk_;
 }
 
 /*
 Returns the value of the players defense
 */
-float Character::playergetDef(){
+float Character::getPlayerDef(){
     return playerdef_;
 }
 
-float Character::playergetExp(){
+float Character::getPlayerExp(){
     if(playerexperience_ <= 0){
         playerexperience_ = 0;
     }
@@ -130,7 +130,7 @@ float Character::playergetExp(){
 Adds experience to the player 
 existing experience
 */
-void Character::playeraddExperience(int Exp){
+void Character::addPlayerExp(int Exp){
     if(playerexperience_ <= 0){
         playerexperience_ = 0;
     }
@@ -146,13 +146,13 @@ return all stats values of player
 void Character::playerStats(){
     cout << "====================" << endl;
     cout << "Player Class: " << getclassname() << endl;
-    cout << "Lvl: " << playergetLevel() << endl;
-    cout << "HP:  " << playergetHP() << endl;
+    cout << "Lvl: " << getPlayerLevel() << endl;
+    cout << "HP:  " << getPlayerHP() << endl;
     cout << "MP:  " << getPlayerMana() << endl;
-    cout << "ATK: " << playergetAtk() << endl;
-    cout << "DEF: " << playergetDef() << endl;
-    cout << "EXP: " << playergetExp() << endl;
-    cout << "Gold: " << playergetGold() << endl;
+    cout << "ATK: " << getPlayerAtk() << endl;
+    cout << "DEF: " << getPlayerDef() << endl;
+    cout << "EXP: " << getPlayerExp() << endl;
+    cout << "Gold: " << getPlayerGold() << endl;
     cout << "Weapon: " << getPlayerWeapon() << endl;
     cout << "====================" << endl;
 }
@@ -162,7 +162,7 @@ sets a player gold the given amount + the amount they have
 */
 void Character::setPlayerGold(int gold){
     playergold_ = gold;
-    if(playergetGold() <= 0){
+    if(getPlayerGold() <= 0){
         playergold_ = 0;
     }
 }
@@ -170,7 +170,7 @@ void Character::setPlayerGold(int gold){
 /*
 returns the amount of gold a player has
 */
-int Character::playergetGold(){
+int Character::getPlayerGold(){
     return playergold_;
 }
 
@@ -191,7 +191,7 @@ string Character::getPlayerWeapon(){
 /*
 sets the stat of a player to the given amount + what they have
 */
-void Character::playerSetATK(int atk){
+void Character::setPlayerAtk(int atk){
     playeratk_ = atk;
 }
 

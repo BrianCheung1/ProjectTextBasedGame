@@ -54,21 +54,21 @@ void Enemy::Enemystats(){
 /*
 Provides value of enemys HP
 */
-float Enemy::EnemygetHP(){
+float Enemy::getEnemyHP(){
     return Enemyhp_;
 }
 
 /*
 Provides value of enemy attack
 */
-float Enemy::EnemygetAtk(){
+float Enemy::getEnemyAtk(){
     return Enemyatk_;
 }
 
 /*
 returns value of enemys defense
 */
-float Enemy::EnemygetDef(){
+float Enemy::getEnemyDef(){
     return Enemydef_;
 }
 
@@ -84,8 +84,7 @@ every five levels Enemys will have their stats
 increased by 2(Just for stats to look nice)
 */
 void Enemy::harderEnemy(Character &a){
-    int playerlevel = floor(a.playergetLevel() / 5);
-    cout << playerlevel << endl;
+    int playerlevel = floor(a.getPlayerLevel() / 5);
     if(playerlevel <= 0){
         playerlevel = 1;
     }
