@@ -7,9 +7,8 @@ int main(){
 
     Character player;
     player.setName(name);
-    
     /*
-    Provide 3 different classes for user to choose fomr
+    Provide 3 different classes for user to choose from
     Each come with different stats
     */
     string choice;
@@ -72,7 +71,15 @@ int main(){
                 placeChoice = Going.nextPlace();
             }
         }
-        else if(placeChoice  == "5"){
+        else if(placeChoice == "5"){
+            player.getPlayerBackpack();
+            placeChoice = Going.nextPlace();
+        }
+        else if(placeChoice == "6"){
+            Going.fishing(player);
+            placeChoice = Going.nextPlace();
+        }
+        else if(placeChoice  == "7"){
             Gameplay = "no";
         }
     }

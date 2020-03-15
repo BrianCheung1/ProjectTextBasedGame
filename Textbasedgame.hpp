@@ -4,6 +4,8 @@
 #include <vector>
 #include <time.h>
 #include <math.h> 
+#include <unistd.h> //for delay
+#include <algorithm> //for sort
 using namespace std;
 
 class Character{
@@ -37,7 +39,8 @@ class Character{
     void setPlayerDefaultHealth(int health);
     void setPlayerDefaultMana(int mana);
     void setPlayerDef(int defense);
-
+    void getPlayerBackpack();
+    void setPlayerBackpack(string item);
 
 private:
     string playername_;
@@ -55,7 +58,7 @@ private:
     int playerskillmanacost_;
     int playerdefaultmp_;
     int playerdefaulthp_;
-    
+    vector<string> backpack;
 };
 
 class Enemy{
@@ -102,6 +105,7 @@ class Places : public Character{
     string nextPlace();
     string town();
     void bossCave(Combat &c, Character &a,Enemy &b);
+    void fishing(Character &a);
 };
 
 class Weapons{

@@ -25,4 +25,8 @@ Added stats upgrade in town for 25G\
 Added Boss stats\
 Added Boss battle option
 
+3/15/2020\
+Added Fishing\
+Added backpack(WIP)\
+
   

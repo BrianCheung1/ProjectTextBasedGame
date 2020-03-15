@@ -266,3 +266,20 @@ sets the defense of a a player to the given amount
 void Character::setPlayerDef(int defense){
     playerdef_ = defense;
 }
+
+void Character::getPlayerBackpack(){
+    sort(backpack.begin(), backpack.end());
+    if(backpack.size() <= 0){
+        cout << "Backpack Empty" << endl;
+    }
+    else if(backpack.size() >= 1){
+        for (int i = 0; i < backpack.size(); i++){
+            cout << "[" << i << "]" << backpack[i] << " ";
+        }
+    }
+    cout << endl;
+}
+
+void Character::setPlayerBackpack(string item){
+    backpack.push_back(item);
+}

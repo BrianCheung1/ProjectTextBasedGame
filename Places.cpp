@@ -8,9 +8,9 @@ Each one represents an action that user can do
 */
 string Places::nextPlace() {
     string placeNumber;
-    while(placeNumber != "1" && placeNumber != "2" && placeNumber != "3" && placeNumber != "4" && placeNumber != "5"){
+    while(placeNumber != "1" && placeNumber != "2" && placeNumber != "3" && placeNumber != "4" && placeNumber != "5" && placeNumber != "6" && placeNumber != "7"){
         cout << "Where would you like to go?" <<endl;
-        cout << "[1]Town [2]Adventure [3]Check Stats [4]Boss Battle [5]Exit Game"  << endl;
+        cout << "[1]Town [2]Adventure [3]Check Stats [4]Boss Battle [5]Backpack [6]Fishing [7]Exit Game"  << endl;
         cin >> placeNumber;
     }
     return placeNumber;
@@ -57,4 +57,33 @@ void Places::bossCave(Combat &c, Character &a, Enemy &b){
             BossBattleChoice = "3";
         }
     }
+}
+
+void Places::fishing(Character &a){
+    vector<string> Fishes = {
+        "Anchovy",
+        "Bass",
+        "Bluefish",
+        "Buffalo Fish",
+        "Butterfish",
+        "Calamari",
+        "Carp",
+        "Catfish",
+        "Chilean sea bass",
+        "Clam",
+        "Cod",
+        "Crab",
+        "Crayfish",
+        "Croaker"
+    };
+    srand(time(NULL));
+    int randomTime;
+    randomTime = rand() % 3;
+    cout << "Fishing..." << endl;
+    sleep(randomTime);
+    cout << "Fishing..." << endl;
+    sleep(randomTime);
+    int randomFish = rand() % Fishes.size();
+    cout << "You've caught a " << Fishes[randomFish] << endl;
+    a.setPlayerBackpack(Fishes[randomFish]);
 }
