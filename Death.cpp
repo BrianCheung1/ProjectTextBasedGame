@@ -20,7 +20,7 @@ void Death::respawn(Character &a) {
     cout << "You've lost " << hpLost << " HP" << endl;
 
     int goldLost = rand() % 25;
-    a.setPlayerGold(-goldLost);
+    a.setPlayerGold(a.getPlayerGold()-goldLost);
     cout << "You've lost " << goldLost << " Gold" << endl;
 
     a.playerStats();

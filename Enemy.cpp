@@ -19,6 +19,9 @@ string Enemy::genRandomMob(){
 Provides the enemys with different stats
 */
 void Enemy::Enemystats(){
+    srand(time(NULL));
+    int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
+    int gold = (rand() % 15) + 1; 
     if(genRandomMob() == "Rat"){
         Enemyhp_ = 10;
         Enemyatk_ = 5;
@@ -49,6 +52,8 @@ void Enemy::Enemystats(){
         Enemyatk_ = 9;
         Enemydef_ = 3;
     }
+    enemyExp_ = exp;
+    enemyGold_ = gold;
 }
 
 /*
@@ -93,10 +98,15 @@ void Enemy::harderEnemy(Character &a){
             Enemyhp_ *= 2;
             Enemyatk_ *= 2;
             Enemydef_ *= 2;
+            enemyExp_ *= 2;
+            enemyGold_ *= 2;
         }
     }
 }
 
+/*
+Returns the stats of the boss
+*/
 void Enemy::bossStats(){
     Enemyname_ = "Dragon";
     Enemyhp_ = 300;
@@ -104,6 +114,23 @@ void Enemy::bossStats(){
     Enemydef_ = 100;
 }
 
+/*
+returns the name of the enemy
+*/
 string Enemy::getEnemyname(){
     return Enemyname_;
+}
+
+/*
+returns the value of enemys exp after death usually
+*/
+int Enemy::getEnemyExp(){
+    return enemyExp_;
+}
+
+/*
+returns the value of enemys gold after death usually
+*/
+int Enemy::getEnemyGold(){
+    return enemyGold_;
 }

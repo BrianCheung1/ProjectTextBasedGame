@@ -5,6 +5,8 @@
 #include <time.h>
 #include <math.h> 
 #include <unistd.h> //for delay
+//#include <Windows.h> //for windows build
+//#include "stdlib.h" //for windows build
 #include <algorithm> //for sort
 using namespace std;
 
@@ -73,12 +75,16 @@ class Enemy{
     void harderEnemy(Character &a);
     void bossStats();
     string getEnemyname();
+    int getEnemyExp();
+    int getEnemyGold();
 
 private:
     string Enemyname_;
     float Enemyhp_;
     float Enemyatk_;
     float Enemydef_;
+    int enemyExp_;
+    int enemyGold_;
 };
 
 class Combat : public Character, Enemy {

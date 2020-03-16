@@ -27,6 +27,11 @@ Added Boss battle option
 
 3/15/2020\
 Added Fishing\
-Added backpack(WIP)\
+Added backpack(WIP)
+
+3/16/202
+Fixed a infinite while loop\
+Increased drop rewards from enemies as they get stronger\
+Upgrading health and mana properly works now
 
   

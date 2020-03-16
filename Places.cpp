@@ -74,11 +74,14 @@ void Places::fishing(Character &a){
         "Cod",
         "Crab",
         "Crayfish",
-        "Croaker"
+        "Croaker", 
+        "Old Boot", 
+        "Rusty Can", 
+        "Worm"
     };
     srand(time(NULL));
     int randomTime;
-    randomTime = rand() % 3;
+    randomTime = rand() % 3000;
     cout << "Fishing..." << endl;
     sleep(randomTime);
     cout << "Fishing..." << endl;

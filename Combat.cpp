@@ -11,7 +11,7 @@ void Combat::startPlayerCombat(Character& a, Enemy& b) {
     //Take total mob hp
     //Remove hp depending on player attack
     //Take total player attack
-    //remove hp depedning on mob attack
+    //remove hp depending on mob attack
     //return hp value of player and mob
     srand(time(NULL));
     int randomPlayerDef = (rand() % int(a.getPlayerDef()/2)) + 1; //gives a random def number
@@ -45,17 +45,15 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
             dmg = 0;        
         }
         a.setEnemyHP(a.getEnemyHP() - dmg);
-        srand(time(NULL));
+        cout << "Your MP: " << b.getPlayerMana() << endl;
         cout << "You've dealt " << dmg << " damage" << endl;
         if (a.getEnemyHP() <= 0) {
-            int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
-            int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
             a.setEnemyHP(0);
-            b.addPlayerExp(b.getPlayerExp() + exp);
+            b.addPlayerExp(b.getPlayerExp() + a.getEnemyGold());
             cout << "Enemy HP: " << a.getEnemyHP() << endl;
-            cout << "You've gained " << exp << " Exp" << endl;
-            b.setPlayerGold(b.getPlayerGold() + gold);
-            cout << "You've gained " << gold << " Gold" << endl;
+            cout << "You've gained " << a.getEnemyExp() << " Exp" << endl;
+            b.setPlayerGold(b.getPlayerGold() + a.getEnemyGold());
+            cout << "You've gained " << a.getEnemyGold() << " Gold" << endl;
         }
         else if(a.getEnemyHP() > 0){
             cout << "Enemy HP: " << a.getEnemyHP() << endl;
@@ -69,18 +67,17 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
     else if(attack == "2"){
         if(b.getPlayerMana() >= b.getPlayerSkillManaCost()){
             b.setPlayerMana(b.getPlayerMana() - b.getPlayerSkillManaCost());
+            cout << "Your MP: " << b.getPlayerMana() << endl;
             cout << "You used " << b.getPlayerSkill() << " and dealt " << b.getPlayerSkillDmg() << " damage" << endl;
             a.setEnemyHP(a.getEnemyHP() - b.getPlayerSkillDmg());
             srand(time(NULL));
             if (a.getEnemyHP() <= 0) {
-                int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
-                int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
                 a.setEnemyHP(0);
-                b.addPlayerExp(b.getPlayerExp() + exp);
+                b.addPlayerExp(b.getPlayerExp() + a.getEnemyGold());
                 cout << "Enemy HP: " << a.getEnemyHP() << endl;
-                cout << "You've gained " << exp << " Exp" << endl;
-                b.setPlayerGold(b.getPlayerGold() + gold);
-                cout << "You've gained " << gold << " Gold" << endl;
+                cout << "You've gained " << a.getEnemyExp() << " Exp" << endl;
+                b.setPlayerGold(b.getPlayerGold() + a.getEnemyGold());
+                cout << "You've gained " << a.getEnemyGold() << " Gold" << endl;
             }
             else if(a.getEnemyHP() > 0){
                 cout << "Enemy HP: " << a.getEnemyHP() << endl;
@@ -100,16 +97,15 @@ void Combat::startEnemyCombat(Enemy& a, Character& b, string attack) {
             }
             a.setEnemyHP(a.getEnemyHP() - dmg);
             srand(time(NULL));
+            cout << "Your MP: " << b.getPlayerMana() << endl;
             cout << "You've dealt " << dmg << " damage" << endl;
             if (a.getEnemyHP() <= 0) {
-                int exp = (rand() % 5) + 1;                                  //random exp if the enemy dies
-                int gold = (rand() % 15) + 1;                                //random gold if the enemy dies
                 a.setEnemyHP(0);
-                b.addPlayerExp(b.getPlayerExp() + exp);
+                b.addPlayerExp(b.getPlayerExp() + a.getEnemyGold());
                 cout << "Enemy HP: " << a.getEnemyHP() << endl;
-                cout << "You've gained " << exp << " Exp" << endl;
-                b.setPlayerGold(b.getPlayerGold() + gold);
-                cout << "You've gained " << gold << " Gold" << endl;
+                cout << "You've gained " << a.getEnemyExp() << " Exp" << endl;
+                b.setPlayerGold(b.getPlayerGold() + a.getEnemyGold());
+                cout << "You've gained " << a.getEnemyGold() << " Gold" << endl;
             }
             else if(a.getEnemyHP() > 0){
                 cout << "Enemy HP: " << a.getEnemyHP() << endl;

@@ -53,7 +53,6 @@ void Character::setClass(string choice){
         playerWeapon_ = "Beginner's Axe";
         playerskill_ = "Heavy Strike";
         playerskillmanacost_ = 5;
-        playerskilldmg_ = 10;
         playermp_ = 15;
         playerdefaultmp_ = 20;
     }
@@ -64,7 +63,6 @@ void Character::setClass(string choice){
         playerWeapon_ = "Beginner's Staff";
         playerskill_ = "Fireball";
         playerskillmanacost_ = 10;
-        playerskilldmg_ = 15;
         playermp_ = 50;
         playerdefaultmp_ = 50;
     }
@@ -75,7 +73,6 @@ void Character::setClass(string choice){
         playerWeapon_ = "Beginner's Bow";
         playerskill_ = "Rain of Arrows";
         playerskillmanacost_ = 10;
-        playerskilldmg_ = 10;
         playermp_ = 25;
         playerdefaultmp_ = 20;
     }
@@ -154,6 +151,7 @@ void Character::playerStats(){
     cout << "EXP: " << getPlayerExp() << endl;
     cout << "Gold: " << getPlayerGold() << endl;
     cout << "Weapon: " << getPlayerWeapon() << endl;
+    cout << "Special Skill ATK: " << getPlayerSkillDmg() << endl;
     cout << "====================" << endl;
 }
 
@@ -206,6 +204,7 @@ string Character::getPlayerSkill(){
 returns the dmg of the player chosen class
 */
 int Character::getPlayerSkillDmg(){
+    playerskilldmg_ = playeratk_ * 1 / 2;
     return playerskilldmg_;
 }
 
