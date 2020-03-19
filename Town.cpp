@@ -6,20 +6,23 @@ Town::Town(){}
 Returns the choice of the user
 of what they would like to do in town
 */
-void Town::whereInTown(Character &a) {
+void Town::whereInTown(Character &a,Items &b) {
     string townChoice = town();
     if(townChoice == "1"){
-        townShop(a);
+        townShop(a,b);
     }
     else if(townChoice == "2"){
         a.playerStats();
-        whereInTown(a);
+        whereInTown(a,b);
     }
     else if(townChoice == "3"){
-        townUpgrade(a);
+        townUpgrade(a,b);
     }
     else if(townChoice == "4"){
-        townSleep(a);
+        townSleep(a,b);
+    }
+    else if(townChoice == "5"){
+        townSell(a, b);
     }
 }
 
@@ -28,9 +31,9 @@ in the shop, user can purchase different weapons
 3 weapon types based on class
 Weapons give boost to atk
 */
-void Town::townShop(Character &a){   
+void Town::townShop(Character &a,Items &b){   
     weaponChoice(a);
-    whereInTown(a);
+    whereInTown(a,b);
 }
 
 /*
@@ -38,9 +41,9 @@ Crafting will allow user to take material they've gathered
 to create a unique weapon
 with some random stats
 */
-void Town::townCrafting(Character &a){
+void Town::townCrafting(Character &a,Items &b){
     cout << "Crafting" << endl;
-    whereInTown(a);
+    whereInTown(a,b);
 }
 
 /*
@@ -49,7 +52,7 @@ HP,MP,ATK,DEF
 each upgrade is 25G
 if not enough gold, wont allow user to purchase
 */
-void Town::townUpgrade(Character &a){
+void Town::townUpgrade(Character &a,Items &b){
     cout << "Upgrades: " << endl;
     cout << "What stats would you like to upgrade?" << endl;
     cout << "25 gold for an upgrade" << endl;
@@ -102,7 +105,7 @@ void Town::townUpgrade(Character &a){
         cout << "You don't have enough gold" << endl;
     }
     
-    whereInTown(a);
+    whereInTown(a,b);
 }
 
 /*
@@ -110,7 +113,7 @@ this allows a player to heal up
 if they have enough gold
 they can sleep and heal back to full hp and mp
 */
-void Town::townSleep(Character &a){
+void Town::townSleep(Character &a,Items &b){
     string sleepChoice;
     while(sleepChoice != "1" && sleepChoice != "2"){
         cout << "What would you like to do? " << endl;
@@ -128,5 +131,33 @@ void Town::townSleep(Character &a){
     else if(sleepChoice == "1" && a.getPlayerGold() < 25){
         cout << "You dont have enough gold" << endl;
     }
-    whereInTown(a);
+    whereInTown(a,b);
+}
+
+void Town::townSell(Character &a, Items &b){
+    
+
+    int backpackChoice = 0;
+    int buyingChoice = 0;
+    int sellingChoice = 0;
+    cout << "What are you trying to sell?" << endl;
+    cout << "[1]Fish [2]Weapons [3]Exit" << endl;
+    cin >> buyingChoice;
+
+    if(buyingChoice == 1){
+        cout << "Backpack" << endl;
+        a.getPlayerBackpack();
+        cout << "What fish are you trying to sell?" << endl;
+        cin >> backpackChoice;
+        b.fishPrices(a,backpackChoice);
+        cout << "Item: " << a.getPlayerBackpackItem(backpackChoice) << endl;
+        cout << "Price: " << b.getFishPrice() << endl;
+        cout << "[1]Sell [2]Exit" << endl;
+        cin >> sellingChoice;
+
+        if (sellingChoice == 1){
+            a.setPlayerGold(a.getPlayerGold() + b.getFishPrice());
+        }
+    }
+
 }

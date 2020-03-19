@@ -282,3 +282,7 @@ void Character::getPlayerBackpack(){
 void Character::setPlayerBackpack(string item){
     backpack.push_back(item);
 }
+
+string Character::getPlayerBackpackItem(int number){
+    return backpack.at(number);
+}

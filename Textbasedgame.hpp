@@ -43,6 +43,7 @@ class Character{
     void setPlayerDef(int defense);
     void getPlayerBackpack();
     void setPlayerBackpack(string item);
+    string getPlayerBackpackItem(int number);
 
 private:
     string playername_;
@@ -133,14 +134,25 @@ class Weapons{
     string weaponName_;
 };
 
-class Town : public Places, Weapons{
+class Items : public Character{
+    public:
+        Items();
+        int getFishPrice();
+        void fishPrices(Character &a, int number);
+
+    private:
+        int FishPrices_;
+};
+
+class Town : public Places, Weapons, Items{
     public:
     Town();
-    void whereInTown(Character &a);
-    void townShop(Character &a);
-    void townCrafting(Character &a);
-    void townUpgrade(Character &a);
-    void townSleep(Character &a);
+    void whereInTown(Character &a,Items &b);
+    void townShop(Character &a,Items &b);
+    void townCrafting(Character &a,Items &b);
+    void townUpgrade(Character &a,Items &b);
+    void townSleep(Character &a,Items &b);
+    void townSell(Character &a,Items &b);
     private:
 };
 
@@ -149,3 +161,4 @@ class Death : public Places{
     Death();
     void respawn(Character &a);
 };
+

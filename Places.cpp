@@ -22,9 +22,9 @@ Each one will provide user with helpful benefits
 */
 string Places::town(){
     string townNumber;
-    while(townNumber != "1" && townNumber != "2" && townNumber != "3" && townNumber != "4" && townNumber != "5"){
+    while(townNumber != "1" && townNumber != "2" && townNumber != "3" && townNumber != "4" && townNumber != "5"  && townNumber != "6"){
         cout << "What would you like to do?" << endl;
-        cout << "[1]Shop [2]Stats [3]Upgrades [4]Rest [5]Exit Town" << endl;
+        cout << "[1]Shop [2]Stats [3]Upgrades [4]Rest [5]Sell Items [6]Exit Town" << endl;
         cin >> townNumber;
     }
     return townNumber;
@@ -81,7 +81,7 @@ void Places::fishing(Character &a){
     };
     srand(time(NULL));
     int randomTime;
-    randomTime = rand() % 3000;
+    randomTime = rand() % 3;
     cout << "Fishing..." << endl;
     sleep(randomTime);
     cout << "Fishing..." << endl;

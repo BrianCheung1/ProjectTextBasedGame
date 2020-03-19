@@ -1,12 +1,14 @@
 #include "Textbasedgame.hpp"
 
 int main(){
+    
     cout << "What is your name?" << endl;
     string name;
     cin >> name;
 
     Character player;
     player.setName(name);
+    Items item;
     /*
     Provide 3 different classes for user to choose from
     Each come with different stats
@@ -44,7 +46,7 @@ int main(){
     while(Gameplay != "no"){
         if(placeChoice == "1"){
             Town townAction;
-            townAction.whereInTown(player);
+            townAction.whereInTown(player,item);
             placeChoice = Going.nextPlace();
         }
         else if(placeChoice == "2"){
